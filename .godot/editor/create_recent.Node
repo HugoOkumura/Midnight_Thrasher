@@ -1,3 +1,10 @@
+RayCast2D
 PathFollow2D
 Path2D
+CharacterBody2D
+InimigoSeguir
+InimigoPatrulha
 Node2D
+AnimatedSprite2D
+Sprite2D
+CollisionShape2D

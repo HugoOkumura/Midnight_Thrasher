@@ -1,15 +1,21 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1723482880
-CharacterBody2D.gd::GDScript::-1::1722988885::0::1::::<>CharacterBody2D<>::
-enemy.gd::GDScript::-1::1723435399::0::1::::Inimigo<>CharacterBody2D<>::
-enemy.tscn::PackedScene::2626150182870067221::1723435399::0::1::::<><>::uid://b0keacar68cyr::::res://sprites/SpritePlayer.png<>res://enemy.gd
+::res://::1723686945
 icon.svg::CompressedTexture2D::4494933161741393003::1722978802::1723398048::1::::<><>::
-Inimigo.gd::GDScript::-1::1723077182::0::1::::<>RefCounted<>::
-PathFollow2D.gd::GDScript::-1::1723433237::0::1::::<>PathFollow2D<>::
+Inimigo.tscn::PackedScene::2626150182870067221::1723687105::0::1::::<><>::uid://b0keacar68cyr::::res://sprites/SpritePlayer.png<>res://VisaoInimigo.gd<>res://State Machine.gd<>res://InimigoSeguir.gd<>res://InimigoPatrulha.gd
 README.md::TextFile::-1::1723144912::0::1::::<><>::
-State.gd::GDScript::-1::1723402536::0::1::::State<>Node<>::
-StateMachine.gd::GDScript::-1::1723432192::0::1::::<>Node2D<>::
-test_map.tscn::PackedScene::8950073032616433661::1723433238::0::1::::<><>::uid://dnf2ixr4ltg66::::res://sprites/CHAO-Sheet.png<>uid://bdoeksfolujqb::::res://enemy.tscn<>res://PathFollow2D.gd
-::res://sprites/::1723398048
+InimigoPatrulha.gd::GDScript::-1::1723686930::0::1::::InimigoPatrulha<>State<>::
+InimigoSeguir.gd::GDScript::-1::1723682033::0::1::::InimigoSeguir<>State<>::
+Inimigo.gd::GDScript::-1::1723682328::0::1::::<>CharacterBody2D<>::
+State Machine.gd::GDScript::-1::1723680890::0::1::::<>Node2D<>::
+State.gd::GDScript::-1::1723680852::0::1::::State<>Node<>::
+VisaoInimigo.gd::GDScript::-1::1723680345::0::1::::<>Area2D<>::
+::res://Arquivos_de_teste/::1723686946
+jogador_tst.gd::GDScript::-1::1723485089::0::1::::Jogador<>CharacterBody2D<>::
+jogador_tst.tscn::PackedScene::2934452516305789959::1723661526::0::1::::<><>::res://Arquivos_de_teste/jogador_tst.gd<>uid://bcn3mee37u22v::::res://sprites/playerwalk2.0-Sheet.png
+test_map.tscn::PackedScene::1062632507058628867::1723687105::0::1::::<><>::uid://dnf2ixr4ltg66::::res://sprites/CHAO-Sheet.png<>uid://bdoeksfolujqb::::res://Inimigo.tscn<>uid://bh2qae4whxqa6::::res://Arquivos_de_teste/jogador_tst.tscn
+::res://Inimigo/::1723654025
+inimigo_caminho.tscn::PackedScene::4440061909893575571::1723687105::0::1::::<><>::uid://bdoeksfolujqb::::res://Inimigo.tscn
+::res://sprites/::1723483451
 CHAO-Sheet.png::CompressedTexture2D::8083693787931766909::1723059729::1723398048::1::::<><>::
+playerwalk2.0-Sheet.png::CompressedTexture2D::2555357004684653751::1723483426::1723483451::1::::<><>::
 SpritePlayer.png::CompressedTexture2D::4162028526017403361::1722988381::1723398048::1::::<><>::

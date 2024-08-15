@@ -1,7 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bdoeksfolujqb"]
+[gd_scene load_steps=19 format=3 uid="uid://bdoeksfolujqb"]
 
 [ext_resource type="Texture2D" uid="uid://b0keacar68cyr" path="res://sprites/SpritePlayer.png" id="1_0ejye"]
-[ext_resource type="Script" path="res://enemy.gd" id="1_knsnq"]
+[ext_resource type="Script" path="res://Inimigo/Inimigo.gd" id="1_dy1o6"]
+[ext_resource type="Script" path="res://Inimigo/VisaoInimigo.gd" id="3_1gn4b"]
+[ext_resource type="Script" path="res://Inimigo/State Machine.gd" id="4_0v0d8"]
+[ext_resource type="Script" path="res://Inimigo/InimigoSeguir.gd" id="5_3yft7"]
+[ext_resource type="Script" path="res://Inimigo/InimigoPatrulha.gd" id="5_5thvr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lp0c8"]
 atlas = ExtResource("1_0ejye")
@@ -89,24 +93,47 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8r1vj"]
 size = Vector2(22, 12)
 
-[node name="Inimigo" type="CharacterBody2D"]
-script = ExtResource("1_knsnq")
+[node name="Inimigo_classe" type="CharacterBody2D"]
+script = ExtResource("1_dy1o6")
 metadata/_edit_vertical_guides_ = [-125.0, 125.0]
-metadata/_edit_horizontal_guides_ = [-13.0, -66.0, -101.0]
+metadata/_edit_horizontal_guides_ = [18.0, 106.0, -101.0]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_4ac7m")
 animation = &"andar"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
 shape = SubResource("RectangleShape2D_8r1vj")
 
 [node name="visao" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
+position = Vector2(1.52588e-05, 0)
+rotation = 3.103
+collision_layer = 4
+script = ExtResource("3_1gn4b")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="visao"]
+rotation = 4.71239
 build_mode = 1
-polygon = PackedVector2Array(-125, -13, 0, 0, 124, -13, 125, -100, -125, -101)
+polygon = PackedVector2Array(-47.3469, -17.8401, 0, 0, 48.5816, -14.1361, 91.9471, -100.527, -83.9219, -107.318)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+debug_enabled = true
+
+[node name="State Machine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+position = Vector2(-2.38419e-07, 0)
+script = ExtResource("4_0v0d8")
+initial_state = NodePath("InimigoPatrulha")
+
+[node name="InimigoPatrulha" type="Node" parent="State Machine" node_paths=PackedStringArray("inimigo")]
+script = ExtResource("5_5thvr")
+inimigo = NodePath("../..")
+
+[node name="InimigoSeguir" type="Node" parent="State Machine" node_paths=PackedStringArray("inimigo")]
+script = ExtResource("5_3yft7")
+inimigo = NodePath("../..")
+
+[connection signal="body_entered" from="visao" to="visao" method="_on_body_entered"]
+[connection signal="jogador_encontrado" from="visao" to="State Machine/InimigoPatrulha" method="_on_visao_jogador_encontrado"]

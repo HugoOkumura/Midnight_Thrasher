@@ -11,6 +11,18 @@ config_version=5
 [application]
 
 config/name="Midnight_Thrasher"
-run/main_scene="res://test_map.tscn"
+run/main_scene="res://Arquivos_de_teste/test_map.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[layer_names]
+
+2d_physics/layer_1="Jogador"
+2d_physics/layer_2="Coletaveis"
+2d_physics/layer_3="Inimigos"
+2d_physics/layer_4="Projeteis"
+2d_physics/layer_5="Mu"
+
+[navigation]
+
+2d/default_edge_connection_margin=32.0

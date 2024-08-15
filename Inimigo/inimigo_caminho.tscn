@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxbehgypccbwi"]
+
+[ext_resource type="PackedScene" uid="uid://bdoeksfolujqb" path="res://Inimigo/Inimigo.tscn" id="1_xbfit"]
+
+[sub_resource type="Curve2D" id="Curve2D_nrr1c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 144, 320, 0, 0, 0, 0, 144, 88, 0, 0, 0, 0, 504, 88, 0, 0, 0, 0, 144, 88, 0, 0, 0, 0, 144, 320)
+}
+point_count = 5
+
+[node name="Inimigo_caminho" type="Path2D"]
+curve = SubResource("Curve2D_nrr1c")
+metadata/_edit_group_ = true
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(144, 320)
+rotation = -1.5708
+
+[node name="Inimigo_classe" parent="PathFollow2D" instance=ExtResource("1_xbfit")]

@@ -1,8 +1,7 @@
 extends Node2D
 
-@export var initial_state : State
-
-var current_state : State
+@export var initial_state: State
+var current_state: State 
 var states : Dictionary = {}
 
 func _ready():
@@ -10,22 +9,22 @@ func _ready():
 		if child is State:
 			states[child.name.to_lower()] = child
 			child.Transitioned.connect(on_child_transition)
-			
-		if initial_state:
-			initial_state.Enter()
-			current_state = initial_state
-			
-func  _process(delta):
+		
+	if initial_state:
+		initial_state.Enter(null)
+		current_state = initial_state
+
+func _process(delta):
 	if current_state:
 		current_state.Update(delta)
-		
+	
 func _physics_process(delta):
 	if current_state:
 		current_state.Physics_Update(delta)
-		
-func on_child_transition(state, new_state_name):
+
+func on_child_transition(state, new_state_name, args):
 	if state != current_state:
-		return 
+		return
 	
 	var new_state = states.get(new_state_name.to_lower())
 	if !new_state:
@@ -33,8 +32,7 @@ func on_child_transition(state, new_state_name):
 	
 	if current_state:
 		current_state.Exit()
-		
-	new_state.enter()
+	
+	new_state.Enter(args)
 	
 	current_state = new_state
-		
