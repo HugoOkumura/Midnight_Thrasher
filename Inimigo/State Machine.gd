@@ -1,4 +1,5 @@
 extends Node2D
+class_name StateMachine
 
 @export var initial_state: State
 var current_state: State 
@@ -13,16 +14,17 @@ func _ready():
 	if initial_state:
 		initial_state.Enter(null)
 		current_state = initial_state
+		
 
-func _process(delta):
+func _process(_delta):
 	if current_state:
-		current_state.Update(delta)
+		current_state.Update(_delta)
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if current_state:
-		current_state.Physics_Update(delta)
+		current_state.Physics_Update(_delta)
 
-func on_child_transition(state, new_state_name, args):
+func on_child_transition(state, new_state_name, _args):
 	if state != current_state:
 		return
 	
@@ -33,6 +35,6 @@ func on_child_transition(state, new_state_name, args):
 	if current_state:
 		current_state.Exit()
 	
-	new_state.Enter(args)
+	new_state.Enter(_args)
 	
 	current_state = new_state

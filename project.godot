@@ -21,7 +21,8 @@ config/icon="res://icon.svg"
 2d_physics/layer_2="Coletaveis"
 2d_physics/layer_3="Inimigos"
 2d_physics/layer_4="Projeteis"
-2d_physics/layer_5="Mu"
+2d_physics/layer_5="Mundo"
+2d_physics/default_edge_connection_margin=1.0
 
 [navigation]
 
