@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf6gh7xysyarn"]
+
+[ext_resource type="Texture2D" uid="uid://dvwlpufhb87i2" path="res://Arma/bullet_normal.png" id="1_a37wd"]
+[ext_resource type="Script" path="res://Arma/Bullet.gd" id="1_axkak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4phaf"]
+size = Vector2(12, 6)
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 8
+collision_mask = 21
+script = ExtResource("1_axkak")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a37wd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4phaf")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

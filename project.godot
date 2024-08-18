@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Midnight_Thrasher"
+run/main_scene="res://Arquivos_de_teste/test_map.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://Arquivos_de_teste/GLOBAL.gd"
+
+[layer_names]
+
+2d_physics/layer_1="Jogador"
+2d_physics/layer_2="Coletaveis"
+2d_physics/layer_3="Inimigos"
+2d_physics/layer_4="Projeteis"
+2d_physics/layer_5="Mundo"
+2d_physics/default_edge_connection_margin=1.0
+
+[navigation]
+
+2d/default_edge_connection_margin=32.0

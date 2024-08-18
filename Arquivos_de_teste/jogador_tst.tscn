@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://bh2qae4whxqa6"]
+
+[ext_resource type="Script" path="res://Arquivos_de_teste/jogador_tst.gd" id="1_423oj"]
+[ext_resource type="Texture2D" uid="uid://bcn3mee37u22v" path="res://sprites/playerwalk2.0-Sheet.png" id="1_gqtuf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyx8i"]
+radius = 8.99977
+height = 33.9991
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3chn"]
+atlas = ExtResource("1_gqtuf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo4jd"]
+atlas = ExtResource("1_gqtuf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcyhv"]
+atlas = ExtResource("1_gqtuf")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0pfc"]
+atlas = ExtResource("1_gqtuf")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuxwf"]
+atlas = ExtResource("1_gqtuf")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtmrx"]
+atlas = ExtResource("1_gqtuf")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdg3u"]
+atlas = ExtResource("1_gqtuf")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_02v5e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3chn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo4jd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcyhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0pfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuxwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtmrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdg3u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Jogador" type="CharacterBody2D"]
+script = ExtResource("1_423oj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Jogador"]]
+rotation = -1.57791
+shape = SubResource("CapsuleShape2D_eyx8i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Jogador"]]
+sprite_frames = SubResource("SpriteFrames_02v5e")
