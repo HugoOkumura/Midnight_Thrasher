@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Midnight_Thrasher"
-run/main_scene="res://Arquivos_de_teste/test_map.tscn"
+run/main_scene="res://title/tittle_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

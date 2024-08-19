@@ -1,5 +1,6 @@
-[gd_scene load_steps=31 format=3 uid="uid://cxtkodkf6lhi7"]
+[gd_scene load_steps=32 format=3 uid="uid://cxtkodkf6lhi7"]
 
+[ext_resource type="Script" path="res://Arquivos_de_teste/ARENA.gd" id="1_6hfmf"]
 [ext_resource type="Texture2D" uid="uid://i8kxsn1vjd70" path="res://sprites/TileSetPart1.png" id="1_47a4l"]
 [ext_resource type="PackedScene" uid="uid://bdoeksfolujqb" path="res://Inimigo/Inimigo.tscn" id="2_ft4cb"]
 [ext_resource type="PackedScene" uid="uid://cbla2kogsrsn4" path="res://Arquivos_de_teste/player.tscn" id="3_cx0t4"]
@@ -339,6 +340,7 @@ _data = {
 point_count = 3
 
 [node name="Andar1" type="Node2D"]
+script = ExtResource("1_6hfmf")
 
 [node name="TileMap" type="TileMap" parent="." groups=["tilemap"]]
 position = Vector2(-40, 0)

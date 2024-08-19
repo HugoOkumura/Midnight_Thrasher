@@ -421,7 +421,6 @@ animation = &"SHOOT_RUN"
 autoplay = "STOPED"
 
 [node name="tempo de recarga" type="Timer" parent="."]
-one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

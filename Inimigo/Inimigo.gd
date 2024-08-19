@@ -10,12 +10,10 @@ class_name Inimigo
 @export var walk_speed = 150
 @export var nav_target : Jogador = null
 
-var bullet = preload("res://Arquivos_de_teste/bullet.tscn")
 var distance: float
 var current_speed
 var death_ani = ["morte_1", "morte_2", "morte_3"]
 var hp = 1
-var recarregado = true
 
 
 func _ready():
@@ -24,15 +22,7 @@ func _ready():
 	nav2d.set_navigation_map(navigation_map)
 	current_speed = walk_speed
 		
-func _process(delta):
-	if hp <= 0:
-		queue_free()
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Global.criacao_no_pai != null and recarregado:
-		Global._instance_node(bullet, global_position, Global.criacao_no_pai)
-		recarregado = false
-		$"tempo de recarga".start()
-		#var death = int(randf_range(0, 3)) #animação de morte n funcional por hora kkkk
-		#ani_sprite.play(death_ani[death])
+
 
 func move_to_position(target_position: Vector2):
 	var motion = position.direction_to(target_position) * current_speed
@@ -50,7 +40,7 @@ func _on_vision_cone_area_body_entered(body):
 		set_target(body)
 		
 func got_hit():
-	statesm.Transitioned.emit(statesm, "InimigoMorte", null)
+	statesm.current_state.Transitioned.emit(statesm.current_state, "InimigoMorte", null)
 	
 
 func is_target_null() -> bool: 
@@ -68,8 +58,5 @@ func get_distance() -> float:
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("Dano"):
-		area.get_parent().queue_free()
+		area.queue_free()
 		hp -= 1
-
-func _on_tempo_de_recarga_timeout():
-	recarregado = true

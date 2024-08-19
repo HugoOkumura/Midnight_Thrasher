@@ -6,25 +6,22 @@ class_name Arma
 @onready var bullet_point = $"Bullet Point"
 @onready var forward = $Forward
 
-var bullet = preload("res://Arquivos_de_teste/bullet.tscn")
-
-
 var parent: CharacterBody2D
 var shoot_time = 3
 var bullets_per_shot = 1
 var aperture_angle = 0
 var shot_distance = 200
 
-#func _create_bullet(direction: float, shooter: CharacterBody2D) -> void:
-	#var instance = projectile.instantiate()
-	## setup bullet
-	#instance.set_shooter(shooter)
-	#instance.global_position = bullet_point.global_position
-#
-	#instance.rotation = direction	
-#
-	#get_tree().get_root().get_child(0).call_deferred("add_child", instance)
-	
+func _create_bullet(direction: float, shooter: CharacterBody2D) -> void:
+	var instance = projectile.instantiate()
+	# setup bullet
+	instance.set_shooter(shooter)
+	instance.global_position = bullet_point.global_position
+
+	instance.rotation = direction	
+
+	#get_tree().get_root().get_child().call_deferred("add_child", instance)
+	get_parent().add_child(instance)
 
 func fire_bullet(shooter: CharacterBody2D) -> void:
 	var direction: float = (forward.global_position - global_position).angle()
@@ -35,4 +32,4 @@ func fire_bullet(shooter: CharacterBody2D) -> void:
 		offset = aperture_angle / (bullets_per_shot-1)
 	
 	for i in range(bullets_per_shot):
-			Global._instance_node(bullet, global_position, Global.criacao_no_pai)
+		_create_bullet(direction + offset*i, shooter)

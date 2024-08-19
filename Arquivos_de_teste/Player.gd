@@ -53,7 +53,7 @@ func _process(_delta: float) -> void:
 		recarregado = false
 		$"tempo de recarga".start()
 	if life <= 0:
-		queue_free()
+		get_tree().change_scene_to_file("res://gameover/gameover.tscn")
 		
 
 
@@ -88,6 +88,6 @@ func _on_tempo_de_recarga_timeout():
 
 
 func _on_hitbox_area_entered(area):
-	if area.is_in_group("Dano"): #######mudar para esse grupo
-		area.get_parent().queue_free()
+	if area.is_in_group("Dano2"): #######mudar para esse grupo
+		area.queue_free()
 		life -= 1

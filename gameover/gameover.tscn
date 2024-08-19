@@ -66,5 +66,7 @@ text = "HOME SCREEN"
 position = Vector2(82.7478, -4.97469)
 zoom = Vector2(2.5, 2.5)
 
+[connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_button"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer/Home" to="." method="_on_home_button"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Home" to="." method="_on_home_pressed"]

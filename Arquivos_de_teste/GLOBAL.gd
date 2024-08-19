@@ -1,6 +1,7 @@
 extends Node
 
 var criacao_no_pai = null
+var enemy = 3
 
 func _instance_node(node, location, parent):
 	var node_instance = node.instantiate()

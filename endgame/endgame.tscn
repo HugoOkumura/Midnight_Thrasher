@@ -66,5 +66,7 @@ text = "EXIT"
 position = Vector2(238, 137)
 zoom = Vector2(2.5, 2.5)
 
+[connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer/Home" to="." method="_on_home_button"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Home" to="." method="_on_home_pressed"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_button"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
