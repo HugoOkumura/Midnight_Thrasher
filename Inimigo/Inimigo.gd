@@ -17,15 +17,18 @@ func _ready():
 	var navigation_map = get_tree().get_first_node_in_group("tilemap").get_navigation_map(0)
 	NavigationServer2D.agent_set_map(nav2d.get_rid(), navigation_map)
 	nav2d.set_navigation_map(navigation_map)
-	current_speed = walk_speed
+	#current_speed = walk_speed
 
 func move_to_position(target_position: Vector2):
-	var motion = position.direction_to(target_position) * current_speed
-	nav2d.set_velocity_forced(motion)
+	print("player pos: ",nav_target.global_position)
+	print("targ pos: ",target_position)
+	var motion = (position.direction_to(target_position)*walk_speed)
+	#nav2d.set_velocity_forced(motion)
 	look_at(target_position)
 	velocity = motion
 	move_and_slide()
-	distance = self.global_position.distance_to(nav_target.global_position)
+#	distance = self.global_position.distance_to(nav_target.global_position)
+	set_distance(self.global_position, nav_target.global_position)
 	
 func move_along_path(path: PathFollow2D, delta: float):
 	path.progress += walk_speed * delta
@@ -49,3 +52,6 @@ func get_target() -> CharacterBody2D:
 
 func get_distance() -> float:
 	return distance
+
+func set_distance(inimigo_pos : Vector2, jogador_pos: Vector2):
+	distance = inimigo_pos.distance_to(jogador_pos)

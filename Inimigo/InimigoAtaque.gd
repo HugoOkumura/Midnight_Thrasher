@@ -12,7 +12,6 @@ var time_elapsed := 0.0
 
 func Enter(_args):
 	ani_sprite.play("parado_armado")
-	print(arma_inimigo.shoot_time)
 	shoot()
 	
 func Physics_Update(_delta: float):
@@ -28,6 +27,7 @@ func Physics_Update(_delta: float):
 		Transitioned.emit(self, "InimigoSeguir", null)
 	
 	time_elapsed += _delta
+	inimigo.set_distance(inimigo.global_position, player_position)
 
 func shoot():
 	time_elapsed = 0

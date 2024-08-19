@@ -11,6 +11,7 @@ var nav_point
 
 func Enter(_args):
 	ani_sprite.play("seguir_armado")
+	#print(nav.get_navigation_map())
 
 func Physics_Update(_delta: float):
 	player_position = inimigo.get_target().global_position

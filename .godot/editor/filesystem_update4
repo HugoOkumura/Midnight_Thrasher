@@ -1,17 +1,5 @@
 res://Inimigo/Inimigo.tscn
-res://Inimigo/InimigoPatrulha.gd
-res://Inimigo/InimigoSeguir.gd
-res://Inimigo/InimigoAtaque.gd
-res://Arquivos_de_teste/test_map.tscn
-res://weapon/weapon.tscn
 res://Inimigo/Inimigo.gd
-res://Inimigo/State.gd
-res://Inimigo/State Machine.gd
-res://Inimigo/Projetil.gd
-res://weapon/normal_bullet.tscn
-res://Arma/Arma.gd
-res://Arma/Arma.tscn
-res://Inimigo/inimigo_caminho.tscn
-res://Arma/Bullet.tscn
-res://Arma/Bullet.gd
-res://Inimigo/InimigoMorte.gd
+res://Arquivos_de_teste/test_map.tscn
+res://Inimigo/InimigoAtaque.gd
+res://Inimigo/InimigoSeguir.gd

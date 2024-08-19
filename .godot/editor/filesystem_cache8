@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1723868048
+::res://::1724001490
 icon.svg::CompressedTexture2D::4494933161741393003::1722978802::1723398048::1::::<><>::
 README.md::TextFile::-1::1723144912::0::1::::<><>::
 ::res://addons/::1723821087
@@ -16,19 +16,22 @@ enemy.tscn::PackedScene::3814154241619058624::1723833359::0::1::::<><>::uid://kf
 example.tscn::PackedScene::5204717988226123136::1723822165::0::1::::<><>::uid://bulute7i5ksyy::::res://addons/vision_cone_2d/examples/enemy.tscn<>uid://hm3o2foxwd2m::::res://addons/vision_cone_2d/examples/wall.tscn<>res://addons/vision_cone_2d/examples/player_movement.gd
 player_movement.gd::GDScript::-1::1723821087::0::1::::<>CharacterBody2D<>::
 wall.tscn::PackedScene::517820941949250254::1723821087::0::1::::<><>::
-::res://Arma/::1723898056
-Arma.gd::GDScript::-1::1723897991::0::1::::Arma<>Node2D<>::
+::res://Arma/::1723911785
+Arma.gd::GDScript::-1::1723904454::0::1::::Arma<>Node2D<>::
+Bullet.gd::GDScript::-1::1723911483::0::1::::Bullet<>Area2D<>::
+Bullet.tscn::PackedScene::5188159815859304431::1723911785::0::1::::<><>::uid://dvwlpufhb87i2::::res://Arma/bullet_normal.png<>res://Arma/Bullet.gd
 bullet_normal.png::CompressedTexture2D::8679339810408046435::1713196516::1723898058::1::::<><>::
-::res://Arquivos_de_teste/::1723870652
+::res://Arquivos_de_teste/::1723911867
 jogador_tst.gd::GDScript::-1::1723784578::0::1::::Jogador<>CharacterBody2D<>::
 jogador_tst.tscn::PackedScene::2934452516305789959::1723661526::0::1::::<><>::res://Arquivos_de_teste/jogador_tst.gd<>uid://bcn3mee37u22v::::res://sprites/playerwalk2.0-Sheet.png
-test_map.tscn::PackedScene::1062632507058628867::1723870652::0::1::::<><>::uid://dnf2ixr4ltg66::::res://sprites/CHAO-Sheet.png<>res://Arquivos_de_teste/jogador_tst.gd<>uid://bcn3mee37u22v::::res://sprites/playerwalk2.0-Sheet.png<>uid://cxbehgypccbwi::::res://Inimigo/inimigo_caminho.tscn
-::res://Inimigo/::1723897991
-Inimigo.gd::GDScript::-1::1723861574::0::1::::Inimigo<>CharacterBody2D<>::
-Inimigo.tscn::PackedScene::2626150182870067221::1723897991::0::1::::<><>::res://Inimigo/Inimigo.gd<>uid://bursrsswlwng1::::res://sprites/Personagem/spriteShitEnemy.png<>res://addons/vision_cone_2d/vision_cone_2d.gd<>res://Inimigo/InimigoAtaque.gd<>res://Inimigo/State Machine.gd<>res://addons/vision_cone_2d/cone_editor_helper.gd<>res://Inimigo/InimigoSeguir.gd<>res://Inimigo/InimigoPatrulha.gd<>res://Arma/Arma.gd
-InimigoAtaque.gd::GDScript::-1::1723867133::0::1::::InimigoAtaque<>State<>::
-InimigoPatrulha.gd::GDScript::-1::1723862044::0::1::::InimigoPatrulha<>State<>::
-InimigoSeguir.gd::GDScript::-1::1723866478::0::1::::InimigoSeguir<>State<>::
+test_map.tscn::PackedScene::1062632507058628867::1723911867::0::1::::<><>::uid://dnf2ixr4ltg66::::res://sprites/CHAO-Sheet.png<>res://Arquivos_de_teste/jogador_tst.gd<>uid://bcn3mee37u22v::::res://sprites/playerwalk2.0-Sheet.png<>uid://bdoeksfolujqb::::res://Inimigo/Inimigo.tscn
+::res://Inimigo/::1723999166
+Inimigo.gd::GDScript::-1::1723999097::0::1::::Inimigo<>CharacterBody2D<>::
+Inimigo.tscn::PackedScene::2626150182870067221::1723911867::0::1::::<><>::res://Inimigo/Inimigo.gd<>uid://cndk2uf8pn41y::::res://sprites/Personagem/enemy_death.png<>uid://bursrsswlwng1::::res://sprites/Personagem/spriteShitEnemy.png<>res://addons/vision_cone_2d/vision_cone_2d.gd<>res://Inimigo/InimigoAtaque.gd<>res://Inimigo/State Machine.gd<>res://addons/vision_cone_2d/cone_editor_helper.gd<>res://Inimigo/InimigoSeguir.gd<>res://Inimigo/InimigoPatrulha.gd<>res://Arma/Arma.gd<>res://Inimigo/InimigoMorte.gd
+InimigoAtaque.gd::GDScript::-1::1723999166::0::1::::InimigoAtaque<>State<>::
+InimigoMorte.gd::GDScript::-1::1723910463::0::1::::InimigoMorte<>State<>::
+InimigoPatrulha.gd::GDScript::-1::1723911783::0::1::::InimigoPatrulha<>State<>::
+InimigoSeguir.gd::GDScript::-1::1723911189::0::1::::InimigoSeguir<>State<>::
 inimigo_caminho.tscn::PackedScene::6389504870243098248::1723870652::0::1::::<><>::uid://bdoeksfolujqb::::res://Inimigo/Inimigo.tscn
 State Machine.gd::GDScript::-1::1723836576::0::1::::StateMachine<>Node2D<>::
 State.gd::GDScript::-1::1723836502::0::1::::State<>Node<>::
@@ -47,10 +50,10 @@ enemy_death.png::CompressedTexture2D::5692145914016883640::1723203442::172386171
 pistol.png::CompressedTexture2D::1544979837858361420::1723629987::1723861717::1::::<><>::
 spriteShitEnemy.png::CompressedTexture2D::3826416216880885562::1723485158::1723861717::1::::<><>::
 spriteShitPlayer.png::CompressedTexture2D::3443547120180685610::1723484463::1723861717::1::::<><>::
-::res://weapon/::1723897916
+::res://weapon/::1723910532
 bullet_normal.png::CompressedTexture2D::566702062261593141::1713196516::1723751517::1::::<><>::
 normal_bullet.gd::GDScript::-1::1713197538::0::1::::NormaBullet<>Area2D<>::
-normal_bullet.tscn::PackedScene::5509361899831037663::1723897916::0::1::::<><>::uid://icrragwfsfs4::::res://weapon/bullet_normal.png<>res://weapon/normal_bullet.gd
+normal_bullet.tscn::PackedScene::5509361899831037663::1723904455::0::1::::<><>::uid://icrragwfsfs4::::res://weapon/bullet_normal.png<>res://weapon/normal_bullet.gd
 weapon.gd::GDScript::-1::1713196935::0::1::::Weapon<>Node2D<>::
 weapon.png::CompressedTexture2D::2759802779609170817::1713196489::1723751517::1::::<><>::
-weapon.tscn::PackedScene::8262614399541042219::1723870652::0::1::::<><>::uid://bfk4swe6cr5ab::::res://weapon/weapon.png<>res://weapon/weapon.gd
+weapon.tscn::PackedScene::8262614399541042219::1723910532::0::1::::<><>::uid://bfk4swe6cr5ab::::res://weapon/weapon.png<>res://weapon/weapon.gd
