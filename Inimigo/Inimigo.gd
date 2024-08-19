@@ -25,12 +25,14 @@ func _ready():
 
 
 func move_to_position(target_position: Vector2):
-	var motion = position.direction_to(target_position) * current_speed
+	var direction = (target_position - global_position).normalized()
+	var motion = direction * current_speed
 	nav2d.set_velocity_forced(motion)
 	look_at(target_position)
 	velocity = motion
 	move_and_slide()
 	distance = self.global_position.distance_to(nav_target.global_position)
+	
 	
 func move_along_path(path: PathFollow2D, delta: float):
 	path.progress += walk_speed * delta
@@ -54,6 +56,10 @@ func get_target() -> CharacterBody2D:
 
 func get_distance() -> float:
 	return distance
+
+func set_distance(inimigo_pos: Vector2, jogador_pos: Vector2):
+	distance = inimigo_pos.distance_to(jogador_pos)
+	
 
 
 func _on_hitbox_area_entered(area):

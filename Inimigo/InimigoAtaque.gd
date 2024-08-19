@@ -28,6 +28,7 @@ func Physics_Update(_delta: float):
 		Transitioned.emit(self, "InimigoSeguir", null)
 	
 	time_elapsed += _delta
+	inimigo.set_distance(inimigo.global_position, player_position)
 
 func shoot():
 	time_elapsed = 0
