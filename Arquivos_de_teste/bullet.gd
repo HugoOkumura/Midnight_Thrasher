@@ -1,8 +1,9 @@
 extends Sprite2D
 
 var mov = Vector2(1, 0)
-var velocidade = 400
+var velocidade = 800
 var direção_unica = true
+var shooter : CharacterBody2D
 
 func _process(delta: float) -> void:
 	if direção_unica:
