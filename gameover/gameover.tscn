@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://h8tur5suktti"]
+
+[ext_resource type="Script" path="res://title/tittle_screen.gd" id="1_0itcn"]
+[ext_resource type="Texture2D" uid="uid://blvbqcp4rs5m7" path="res://gameover/title_gameOver2.png" id="2_x84tr"]
+[ext_resource type="Theme" uid="uid://clewuq8bf48c6" path="res://title/newbutton.tres" id="3_bm0p2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4wyw4"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0itcn")
+
+[node name="Bg" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 480.0
+offset_bottom = 270.0
+size_flags_horizontal = 4
+texture = ExtResource("2_x84tr")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -415.0
+offset_top = 139.0
+offset_right = -245.0
+offset_bottom = 249.0
+grow_horizontal = 2
+scale = Vector2(0.930538, 1.00509)
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Restart" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_bm0p2")
+text = "RESTART"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4wyw4")
+
+[node name="Home" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_bm0p2")
+text = "HOME SCREEN"
+
+[node name="Camera2D" type="Camera2D" parent="MarginContainer"]
+position = Vector2(82.7478, -4.97469)
+zoom = Vector2(2.5, 2.5)
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Home" to="." method="_on_home_pressed"]

@@ -116,7 +116,7 @@ rotation = 1.5708
 [node name="Inimigo_classe" parent="Path2D2/PathFollow2D" instance=ExtResource("5_61axr")]
 
 [node name="Player" parent="." instance=ExtResource("3_15q3k")]
-position = Vector2(256, 135)
+position = Vector2(521, 330)
 scale = Vector2(1, 1)
 collision_layer = 31
 collision_mask = 31
