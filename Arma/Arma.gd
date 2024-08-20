@@ -6,8 +6,9 @@ class_name Arma
 @onready var bullet_point = $"Bullet Point"
 @onready var forward = $Forward
 
+
 var parent: CharacterBody2D
-var shoot_time = 3
+var shoot_time = 2
 var bullets_per_shot = 1
 var aperture_angle = 0
 var shot_distance = 200
@@ -33,3 +34,6 @@ func fire_bullet(shooter: CharacterBody2D) -> void:
 	
 	for i in range(bullets_per_shot):
 		_create_bullet(direction + offset*i, shooter)
+
+func get_shoot_time() -> float:
+	return shoot_time

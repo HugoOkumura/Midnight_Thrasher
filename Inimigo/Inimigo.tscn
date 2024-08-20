@@ -293,9 +293,9 @@ shape = SubResource("RectangleShape2D_etrkg")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
-debug_enabled = true
 
 [node name="VisionCone2D" type="Node2D" parent="." node_paths=PackedStringArray("write_collision_polygon", "write_polygon2d")]
+visible = false
 rotation = -1.57079
 script = ExtResource("3_4gwwd")
 angle_deg = 90
@@ -332,6 +332,10 @@ script = ExtResource("5_3yft7")
 [node name="InimigoAtaque" type="Node" parent="State Machine"]
 script = ExtResource("3_86r7y")
 
+[node name="Timer" type="Timer" parent="State Machine/InimigoAtaque"]
+one_shot = true
+autostart = true
+
 [node name="InimigoMorte" type="Node" parent="State Machine"]
 script = ExtResource("10_02vat")
 
@@ -364,5 +368,6 @@ wait_time = 0.5
 one_shot = true
 
 [connection signal="body_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
+[connection signal="timeout" from="State Machine/InimigoAtaque/Timer" to="State Machine/InimigoAtaque" method="_on_timer_timeout"]
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="tempo de recarga" to="." method="_on_tempo_de_recarga_timeout"]
