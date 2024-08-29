@@ -1,10 +1,9 @@
 extends CharacterBody2D
 class_name Inimigo
 
-@onready var ani_sprite : AnimatedSprite2D = $AnimatedSprite2D
+#@onready var ani_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var nav2d = $NavigationAgent2D
 @onready var statesm = $"State Machine" as StateMachine
-
 
 @export var rotation_speed = 2
 @export var walk_speed = 150
@@ -13,16 +12,14 @@ class_name Inimigo
 var distance: float
 var current_speed
 var death_ani = ["morte_1", "morte_2", "morte_3"]
-var hp = 1
-
+var hp = 2
 
 func _ready():
 	var navigation_map = get_tree().get_first_node_in_group("tilemap").get_navigation_map(0)
 	NavigationServer2D.agent_set_map(nav2d.get_rid(), navigation_map)
 	nav2d.set_navigation_map(navigation_map)
 	current_speed = walk_speed
-		
-
+	z_index = 2
 
 func move_to_position(target_position: Vector2):
 	var direction = (target_position - global_position).normalized()
@@ -41,8 +38,11 @@ func _on_vision_cone_area_body_entered(body):
 	if body.is_in_group("Jogador"):
 		set_target(body)
 		
-func got_hit():
-	statesm.current_state.Transitioned.emit(statesm.current_state, "InimigoMorte", null)
+func got_hit(dmg: int):
+	hp -= dmg
+	print(hp)
+	if hp == 0:
+		statesm.current_state.Transitioned.emit(statesm.current_state, "InimigoMorte", null)
 	
 
 func is_target_null() -> bool: 

@@ -4,12 +4,13 @@ class_name InimigoSeguir
 @onready var inimigo = $"../.." as Inimigo
 @onready var nav: NavigationAgent2D = $"../../NavigationAgent2D"
 @onready var ani_sprite = $"../../AnimatedSprite2D"
-@onready var arma_inimigo = $"../../Arma Inimigo"
+@onready var arma_inimigo = $"../../Arma"
 
 var player_position : Vector2
 var nav_point 
 
 func Enter(_args):
+	#arma_instance = arma_inimigo.instantiate()
 	ani_sprite.play("seguir_armado")
 
 func Physics_Update(_delta: float):
@@ -19,6 +20,6 @@ func Physics_Update(_delta: float):
 	var next_position = nav.get_next_path_position()
 	inimigo.move_to_position(next_position)
 	
-	if inimigo.get_distance() <= arma_inimigo.shot_distance:
+	if inimigo.get_distance() <= arma_inimigo.get_shot_distance():
 		Transitioned.emit(self, "InimigoAtaque", null)
 	

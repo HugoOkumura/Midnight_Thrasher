@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bdoeksfolujqb"]
+[gd_scene load_steps=45 format=3 uid="uid://bdoeksfolujqb"]
 
 [ext_resource type="Script" path="res://Inimigo/Inimigo.gd" id="1_dy1o6"]
 [ext_resource type="Texture2D" uid="uid://cndk2uf8pn41y" path="res://sprites/Personagem/enemy_death.png" id="2_fk1fj"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://addons/vision_cone_2d/cone_editor_helper.gd" id="4_iuebu"]
 [ext_resource type="Script" path="res://Inimigo/InimigoSeguir.gd" id="5_3yft7"]
 [ext_resource type="Script" path="res://Inimigo/InimigoPatrulha.gd" id="5_5thvr"]
-[ext_resource type="Script" path="res://Arma/Arma.gd" id="9_sdphr"]
 [ext_resource type="Script" path="res://Inimigo/InimigoMorte.gd" id="10_02vat"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3r0y5"]
@@ -273,7 +272,7 @@ size = Vector2(16, 32)
 [sub_resource type="CircleShape2D" id="CircleShape2D_8rovm"]
 radius = 144.0
 
-[node name="Inimigo_classe" type="CharacterBody2D" groups=["Inimigo"]]
+[node name="Inimigo" type="CharacterBody2D" groups=["Inimigo"]]
 collision_layer = 4
 collision_mask = 27
 motion_mode = 1
@@ -284,18 +283,18 @@ metadata/_edit_horizontal_guides_ = [18.0, 106.0, -101.0]
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 4.71239
 sprite_frames = SubResource("SpriteFrames_4ac7m")
-animation = &"parado_desarmado"
+animation = &"morte_1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8.74229e-08)
 rotation = 3.14159
 shape = SubResource("RectangleShape2D_etrkg")
+debug_color = Color(0.34856, 0.315659, 0.755456, 0.42)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
 
 [node name="VisionCone2D" type="Node2D" parent="." node_paths=PackedStringArray("write_collision_polygon", "write_polygon2d")]
-visible = false
 rotation = -1.57079
 script = ExtResource("3_4gwwd")
 angle_deg = 90
@@ -307,10 +306,11 @@ write_polygon2d = NodePath("VisionConeRenderer")
 metadata/_edit_group_ = true
 
 [node name="VisionConeRenderer" type="Polygon2D" parent="VisionCone2D"]
-color = Color(0.431373, 0.929412, 0.278431, 0.286275)
+color = Color(0.84849, 0.796862, 0.615336, 0.286275)
 
 [node name="VisionConeArea" type="Area2D" parent="VisionCone2D"]
 collision_layer = 0
+collision_mask = 9
 monitorable = false
 
 [node name="VisionConeCollider" type="CollisionPolygon2D" parent="VisionCone2D/VisionConeArea"]
@@ -339,15 +339,6 @@ autostart = true
 [node name="InimigoMorte" type="Node" parent="State Machine"]
 script = ExtResource("10_02vat")
 
-[node name="Arma Inimigo" type="Node2D" parent="."]
-script = ExtResource("9_sdphr")
-
-[node name="Forward" type="Node2D" parent="Arma Inimigo"]
-position = Vector2(16, 0)
-
-[node name="Bullet Point" type="Node2D" parent="Arma Inimigo"]
-position = Vector2(8, 0)
-
 [node name="Alert Area" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
@@ -355,19 +346,7 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Alert Area"]
 rotation = 0.0025966
 shape = SubResource("CircleShape2D_8rovm")
-
-[node name="hitbox" type="Area2D" parent="."]
-
-[node name="col" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0, 8.74229e-08)
-rotation = 3.14159
-shape = SubResource("RectangleShape2D_etrkg")
-
-[node name="tempo de recarga" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
+debug_color = Color(0.945098, 0.890196, 0, 0.419608)
 
 [connection signal="body_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
 [connection signal="timeout" from="State Machine/InimigoAtaque/Timer" to="State Machine/InimigoAtaque" method="_on_timer_timeout"]
-[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="timeout" from="tempo de recarga" to="." method="_on_tempo_de_recarga_timeout"]
