@@ -20,9 +20,8 @@ func exit():
 	timer_2.stop()	
 	
 	
+
 func process_state(_delta):
-	pass
-func process_state_2(_delta):
 	owner.animatedBody.play('run')
 	owner.animatedLeg.play('run_leg')
 	if owner.position.x < 200:
@@ -48,5 +47,4 @@ func process_state_2(_delta):
 
 
 func _on_timer_2_timeout():
-	pass
-	#transicao = true
+	transicao = true
