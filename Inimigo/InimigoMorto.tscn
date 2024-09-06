@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://cd3txyy3nbm5n"]
+
+[ext_resource type="Script" path="res://Inimigo/InimigoMorto.gd" id="1_dd8ph"]
+[ext_resource type="Texture2D" uid="uid://cndk2uf8pn41y" path="res://sprites/Personagem/enemy_death.png" id="1_gomm7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r0y5"]
+atlas = ExtResource("1_gomm7")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy0kc"]
+atlas = ExtResource("1_gomm7")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4umd"]
+atlas = ExtResource("1_gomm7")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gd550"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3r0y5")
+}],
+"loop": true,
+"name": &"morte_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy0kc")
+}],
+"loop": true,
+"name": &"morte_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4umd")
+}],
+"loop": true,
+"name": &"morte_3",
+"speed": 5.0
+}]
+
+[node name="InimigoMorto" type="Node2D"]
+script = ExtResource("1_dd8ph")
+
+[node name="sprites" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_gd550")
+animation = &"morte_1"

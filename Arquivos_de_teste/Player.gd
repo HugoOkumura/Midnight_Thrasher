@@ -12,14 +12,15 @@ const CROSSHAIR = preload("res://Arquivos_de_teste/character_crosshair.png")
 	"right": "ui_right",
 	"up":    "ui_up", 
 	"down":  "ui_down"}
+@onready var arma_player = $Arma
 
 var can_shoot := true
 var _input: Vector2 = Vector2.ZERO
 var _direction: Vector2 = Vector2.ZERO
 var _screen_size: Vector2
-var bullet = preload("res://Arquivos_de_teste/bullet.tscn")
-var recarregado = true
-var life = 1
+#var bullet = preload("res://Arma/Bullet.tscn")
+#var recarregado = true
+var hp = 2
 var colete = false
 var morto = false
 
@@ -28,7 +29,7 @@ signal hit
 func _ready() -> void:
 	_screen_size = get_viewport_rect().size
 	Input.set_custom_mouse_cursor(CROSSHAIR)
-
+	z_index = 2
 
 func _process(_delta: float) -> void:
 
@@ -48,11 +49,15 @@ func _process(_delta: float) -> void:
 			
 	_move_in_any_direction(_delta)
 	_aim_burster()
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Global.criacao_no_pai != null and recarregado:
-		Global._instance_node(bullet, global_position, Global.criacao_no_pai)
-		recarregado = false
-		$"tempo de recarga".start()
-	if life <= 0:
+	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Global.criacao_no_pai != null and recarregado:
+		#Global._instance_node(bullet, global_position, Global.criacao_no_pai)
+		#recarregado = false
+		#$"tempo de recarga".start()
+	
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and arma_player.current_arma.can_shoot:
+		arma_player.fire()
+	
+	if hp <= 0:
 		get_tree().change_scene_to_file("res://gameover/gameover.tscn")
 		
 
@@ -82,12 +87,14 @@ func _wrap_screen() -> void:
 func _aim_burster():
 	_pl.look_at(get_global_mouse_position())
 
+func got_hit(dmg:int):
+	hp -= dmg
 
-func _on_tempo_de_recarga_timeout():
-	recarregado = true
+#func _on_tempo_de_recarga_timeout():
+	#recarregado = true
 
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("Dano2"): #######mudar para esse grupo
 		area.queue_free()
-		life -= 1
+		hp -= 1

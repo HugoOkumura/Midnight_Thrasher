@@ -1,39 +1,51 @@
 extends Node2D
 class_name Arma
 
-@onready var inimigo = $".."
-@onready var projectile = load("res://Arma/Bullet.tscn")
-@onready var bullet_point = $"Bullet Point"
-@onready var forward = $Forward
+@export_enum("Pistola", "Faca", "Shotgun", "MCHgun") var initial_arma:String
+@onready var change_time = $"change time"
 
+var armas_dic := {} 
 
-var parent: CharacterBody2D
-var shoot_time = 2
-var bullets_per_shot = 1
-var aperture_angle = 0
-var shot_distance = 200
+var shooter 
+var current_arma: Arma
+var bullets_per_shot : int
+var shoot_time : float
+var aperture_angle :float
+var shot_distance :float
+var damage : int
+var can_shoot : bool
+var municao : int
 
-func _create_bullet(direction: float, shooter: CharacterBody2D) -> void:
-	var instance = projectile.instantiate()
-	# setup bullet
-	instance.set_shooter(shooter)
-	instance.global_position = bullet_point.global_position
-
-	instance.rotation = direction	
-
-	#get_tree().get_root().get_child().call_deferred("add_child", instance)
-	get_parent().add_child(instance)
-
-func fire_bullet(shooter: CharacterBody2D) -> void:
-	var direction: float = (forward.global_position - global_position).angle()
-	direction -= aperture_angle/2
+func _ready():
+	shooter = self.get_parent()
+	for child in get_children():
+		if child is Arma:
+			armas_dic[child.name.to_lower()] = child
+	if initial_arma:
+		current_arma = armas_dic.get(initial_arma.to_lower())
+		current_arma.set_arma_params()
 	
-	var offset: float = 0
-	if bullets_per_shot > 1:
-		offset = aperture_angle / (bullets_per_shot-1)
-	
-	for i in range(bullets_per_shot):
-		_create_bullet(direction + offset*i, shooter)
+func set_arma_params():
+	pass
+
+func fire():
+	current_arma.fire_bullet()
 
 func get_shoot_time() -> float:
-	return shoot_time
+	return current_arma.shoot_time
+
+func get_shot_distance()->float:
+	return current_arma.shot_distance
+	
+func get_shooter() -> Node2D:
+	return shooter
+
+func change_arma(new_arma_name:String):
+	change_time.start()
+	print("Player: changing weapon")
+	var new = armas_dic.get(new_arma_name.to_lower())
+	if !new:
+		return
+	await change_time.timeout
+	current_arma = new
+	current_arma.set_arma_params()
