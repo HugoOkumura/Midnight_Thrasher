@@ -1,29 +1,32 @@
 extends StateBoss
-class_name IdleState
+class_name IdleStateBoss2
 
-@onready var timer_2 = $"../../Timer2"
+@onready var fireTime = $"../../Fire"
+
 
 var transicao = false
 
 func transition():
+
 	if transicao:
-		get_parent().change_state('Follow')
+		get_parent().change_state('Fire')
 
 func enter():
 	super.enter()
+	fireTime.start()
 
-	timer_2.start()
-	
 func exit():
 	super.exit()
 	transicao = false
-	timer_2.stop()	
+	transicao = false
+	fireTime.stop()	
+
 	
 	
 
 func process_state(_delta):
-	owner.animatedBody.play('run')
-	owner.animatedLeg.play('run_leg')
+	owner.animatedBody.play('Run')
+	owner.animatedLeg.play('runleg')
 	if owner.position.x < 200:
 		owner.direcVector = Vector2(1.0,0.0)
 		
@@ -38,7 +41,7 @@ func process_state(_delta):
 	var angulo = direcao.angle()
 
 	# Defina a rotação do owner para esse ângulo
-	owner.rotation = angulo - PI / 2 # Ajuste de 90 graus
+	owner.rotation = angulo # Ajuste de 90 graus
 	owner.move_and_slide()
 
 	
@@ -46,5 +49,5 @@ func process_state(_delta):
 	
 
 
-func _on_timer_2_timeout():
+func _on_fire_timeout():
 	transicao = true

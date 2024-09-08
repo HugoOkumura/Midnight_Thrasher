@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c18b3a1yuk7p2"]
+[gd_scene load_steps=7 format=3 uid="uid://tg4ocn31r3t1"]
 
 [ext_resource type="Script" path="res://Arma/Arma.gd" id="1_gy0ey"]
 [ext_resource type="Script" path="res://Arma/Pistola.gd" id="2_uioh7"]
