@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://d42n1e5h1m3a"]
+[gd_scene load_steps=51 format=3 uid="uid://d42n1e5h1m3a"]
 
 [ext_resource type="Texture2D" uid="uid://c7x3gkkvkboot" path="res://sprites/boss/boss1_SpriteSheet.png" id="1_8nasd"]
 [ext_resource type="Script" path="res://boss/boss1/boss_one.gd" id="1_nkkp8"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://boss/boss1/death.gd" id="7_myii4"]
 [ext_resource type="AudioStream" uid="uid://b5ryjo5ui5xei" path="res://efeitosSonoros/facada.mp3" id="8_xgvfr"]
 [ext_resource type="AudioStream" uid="uid://bkj0fchj8nk0v" path="res://efeitosSonoros/death.mp3" id="10_56ab2"]
+[ext_resource type="PackedScene" uid="uid://tg4ocn31r3t1" path="res://Arma/Arma.tscn" id="11_hugxn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jokyb"]
 atlas = ExtResource("1_8nasd")
@@ -290,6 +291,7 @@ size = Vector2(57, 25)
 
 [node name="boss_one" type="CharacterBody2D" groups=["Inimigo"]]
 rotation = -1.5708
+collision_layer = 4
 script = ExtResource("1_nkkp8")
 
 [node name="SpriteCorpo" type="Node2D" parent="."]
@@ -302,8 +304,6 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_b66vm")
 animation = &"run_leg"
 autoplay = "Idle_leg"
-frame = 10
-frame_progress = 0.489083
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteCorpo"]
 position = Vector2(10, 2)
@@ -379,8 +379,10 @@ stream = ExtResource("8_xgvfr")
 [node name="Death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_56ab2")
 
+[node name="Arma" parent="." instance=ExtResource("11_hugxn")]
+initial_arma = "Faca"
+
 [connection signal="timeout" from="Timer" to="FiniteStateMachine/Follow" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="FiniteStateMachine/Idle" method="_on_timer_2_timeout"]
 [connection signal="body_entered" from="Area2D" to="FiniteStateMachine/Follow" method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="dano" to="." method="_on_dano_area_entered"]
-[connection signal="body_entered" from="dano" to="." method="_on_dano_body_entered"]

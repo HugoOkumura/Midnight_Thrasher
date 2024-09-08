@@ -2,7 +2,6 @@ extends Node2D
 class_name StateBoss
 
 @onready var player = owner.get_parent().find_child('Player')
-@onready var ray_cast_2d = owner.find_child('RayCast2D')
 @onready var label = owner.find_child('Label')
 @onready var animated_sprite_Body = $SpriteCorpo/AnimatedSprite2D
 @onready var animated_sprite_leg = $SpriteCorpo/Pernas/AnimatedSprite2D

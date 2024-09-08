@@ -7,6 +7,8 @@ var aux_direcao = Vector2.ZERO
 var bateu = false
 var transicao = false
 var player_direcao = Vector2.ZERO
+@onready var arma = $"../../Arma"
+
 func transition():
 	if owner.position.distance_to(aux_direcao) <= 15:
 		get_parent().change_state('Idle')
@@ -55,8 +57,9 @@ func process_state(_delta):
 
 func _on_area_2d_body_entered(body):
 	if body.get_name() == "Player":
-		timer.start()
+		arma.fire()
 		bateu = true
+		
 	
 
 
