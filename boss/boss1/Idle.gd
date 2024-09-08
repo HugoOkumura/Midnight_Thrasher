@@ -6,6 +6,7 @@ class_name IdleState
 var transicao = false
 
 func transition():
+
 	if transicao:
 		get_parent().change_state('Follow')
 

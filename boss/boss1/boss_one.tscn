@@ -1,11 +1,15 @@
-[gd_scene load_steps=46 format=3 uid="uid://d42n1e5h1m3a"]
+[gd_scene load_steps=50 format=3 uid="uid://d42n1e5h1m3a"]
 
 [ext_resource type="Texture2D" uid="uid://c7x3gkkvkboot" path="res://sprites/boss/boss1_SpriteSheet.png" id="1_8nasd"]
-[ext_resource type="Script" path="res://boss/boss_one.gd" id="1_nkkp8"]
-[ext_resource type="Script" path="res://boss/FiniteStateMachine.gd" id="2_7hgyf"]
-[ext_resource type="Script" path="res://boss/Idle.gd" id="4_xgdrf"]
-[ext_resource type="Script" path="res://boss/follow.gd" id="5_d4km1"]
-[ext_resource type="Script" path="res://boss/punch.gd" id="6_sg5k4"]
+[ext_resource type="Script" path="res://boss/boss1/boss_one.gd" id="1_nkkp8"]
+[ext_resource type="Script" path="res://boss/boss1/FiniteStateMachine.gd" id="2_7hgyf"]
+[ext_resource type="Texture2D" uid="uid://crwxikivxbqpt" path="res://boss/boss1/Boss1_death.png" id="3_vovjw"]
+[ext_resource type="Script" path="res://boss/boss1/Idle.gd" id="4_xgdrf"]
+[ext_resource type="Script" path="res://boss/boss1/follow.gd" id="5_d4km1"]
+[ext_resource type="Script" path="res://boss/boss1/punch.gd" id="6_sg5k4"]
+[ext_resource type="Script" path="res://boss/boss1/death.gd" id="7_myii4"]
+[ext_resource type="AudioStream" uid="uid://b5ryjo5ui5xei" path="res://efeitosSonoros/facada.mp3" id="8_xgvfr"]
+[ext_resource type="AudioStream" uid="uid://bkj0fchj8nk0v" path="res://efeitosSonoros/death.mp3" id="10_56ab2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jokyb"]
 atlas = ExtResource("1_8nasd")
@@ -307,14 +311,23 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_pkne4")
 animation = &"run"
 autoplay = "Idle"
+
+[node name="SpriteMorto" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="SpriteMorto"]
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("3_vovjw")
+vframes = 3
 frame = 1
-frame_progress = 0.607307
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(11, -9.5)
 shape = SubResource("RectangleShape2D_usi33")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -13.0
 offset_top = -47.0
 offset_right = 32.0
@@ -335,8 +348,9 @@ script = ExtResource("5_d4km1")
 [node name="punch" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("6_sg5k4")
 
-[node name="dodge" type="Node2D" parent="FiniteStateMachine"]
+[node name="death" type="Node2D" parent="FiniteStateMachine"]
 position = Vector2(8, 1)
+script = ExtResource("7_myii4")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
@@ -344,7 +358,7 @@ wait_time = 0.3
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 2.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["Dano2"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(9, 5)
@@ -359,7 +373,14 @@ collision_mask = 27
 position = Vector2(-0.5, -9.53674e-07)
 shape = SubResource("RectangleShape2D_igjt7")
 
+[node name="Punch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_xgvfr")
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_56ab2")
+
 [connection signal="timeout" from="Timer" to="FiniteStateMachine/Follow" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="FiniteStateMachine/Idle" method="_on_timer_2_timeout"]
 [connection signal="body_entered" from="Area2D" to="FiniteStateMachine/Follow" method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="dano" to="." method="_on_dano_area_entered"]
+[connection signal="body_entered" from="dano" to="." method="_on_dano_body_entered"]

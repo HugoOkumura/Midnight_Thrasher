@@ -42,7 +42,6 @@ func get_shooter() -> Node2D:
 
 func change_arma(new_arma_name:String):
 	change_time.start()
-	print("Player: changing weapon")
 	var new = armas_dic.get(new_arma_name.to_lower())
 	if !new:
 		return
