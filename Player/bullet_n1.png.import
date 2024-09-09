@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsm101h33ohxo"
-path="res://.godot/imported/player_run_shot_pistol.png-4278f697ff92c6c59f7f24cae976d8cf.ctex"
+uid="uid://bntuqwuaadg50"
+path="res://.godot/imported/bullet_n1.png-d47c8572791b7e96928287bf7b281062.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arquivos_de_teste/DevGames_parte1/DevGames_parte1/player/player_run_shot_pistol.png"
-dest_files=["res://.godot/imported/player_run_shot_pistol.png-4278f697ff92c6c59f7f24cae976d8cf.ctex"]
+source_file="res://Player/bullet_n1.png"
+dest_files=["res://.godot/imported/bullet_n1.png-d47c8572791b7e96928287bf7b281062.ctex"]
 
 [params]
 

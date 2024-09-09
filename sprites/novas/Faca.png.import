@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2332o6stnywe"
-path="res://.godot/imported/enemy-run-Sheet.png-25f22c156c8a726e3b137d17c372a1f3.ctex"
+uid="uid://e5bhsac7s3ck"
+path="res://.godot/imported/Faca.png-0e25581495c36f8b92d47408b0cc18be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arquivos_de_teste/DevGames_parte1/DevGames_parte1/enemy/enemy-run-Sheet.png"
-dest_files=["res://.godot/imported/enemy-run-Sheet.png-25f22c156c8a726e3b137d17c372a1f3.ctex"]
+source_file="res://sprites/novas/Faca.png"
+dest_files=["res://.godot/imported/Faca.png-0e25581495c36f8b92d47408b0cc18be.ctex"]
 
 [params]
 

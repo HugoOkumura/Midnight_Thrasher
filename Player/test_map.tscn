@@ -2,8 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dnf2ixr4ltg66" path="res://sprites/CHAO-Sheet.png" id="1_w6ftm"]
 [ext_resource type="Script" path="res://Arquivos_de_teste/arena.gd" id="1_xjmlf"]
-[ext_resource type="PackedScene" uid="uid://cbla2kogsrsn4" path="res://Arquivos_de_teste/player.tscn" id="3_15q3k"]
+[ext_resource type="PackedScene" uid="uid://cbla2kogsrsn4" path="res://Player/player.tscn" id="3_15q3k"]
 [ext_resource type="PackedScene" uid="uid://bdoeksfolujqb" path="res://Inimigo/Inimigo.tscn" id="5_61axr"]
+
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dpqcb"]
 vertices = PackedVector2Array(10, 10, -10, 10, -10, -10, 10, -10)

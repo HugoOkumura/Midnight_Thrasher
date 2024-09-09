@@ -4,6 +4,7 @@ class_name Inimigo
 #@onready var ani_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var nav2d = $NavigationAgent2D
 @onready var statesm = $"State Machine" as StateMachine
+@onready var arma_inimigo = $"../../Arma"
 
 @export var rotation_speed = 2
 @export var walk_speed = 150
@@ -21,6 +22,7 @@ func _ready():
 	current_speed = walk_speed
 	z_index = 2
 
+	
 func move_to_position(target_position: Vector2):
 	var direction = (target_position - global_position).normalized()
 	var motion = direction * current_speed
@@ -43,6 +45,7 @@ func got_hit(dmg: int):
 	print(hp)
 	if hp == 0:
 		statesm.current_state.Transitioned.emit(statesm.current_state, "InimigoMorte", null)
+		
 	
 
 func is_target_null() -> bool: 

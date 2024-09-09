@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbnk0bi1hwwo4"
-path="res://.godot/imported/enemy_death.png-f102c8424a0e7c0240b015dbe22d4ee4.ctex"
+uid="uid://dsm101h33ohxo"
+path="res://.godot/imported/player_run_shot_pistol.png-d7457381c47983620435616f3506f77f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arquivos_de_teste/DevGames_parte1/DevGames_parte1/enemy/enemy_death.png"
-dest_files=["res://.godot/imported/enemy_death.png-f102c8424a0e7c0240b015dbe22d4ee4.ctex"]
+source_file="res://Player/DevGames_parte1/DevGames_parte1/player/player_run_shot_pistol.png"
+dest_files=["res://.godot/imported/player_run_shot_pistol.png-d7457381c47983620435616f3506f77f.ctex"]
 
 [params]
 

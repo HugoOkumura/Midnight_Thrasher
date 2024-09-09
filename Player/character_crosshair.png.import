@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm7pflb1wqokh"
-path="res://.godot/imported/player_idle-Sheet.png-562c50d514fe8e8b95709ef7fdccefcd.ctex"
+uid="uid://bdcrcfil5ajlq"
+path="res://.godot/imported/character_crosshair.png-9f9dbfc08aee99eed2c03bf58c5e3543.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arquivos_de_teste/DevGames_parte1/DevGames_parte1/player/player_idle-Sheet.png"
-dest_files=["res://.godot/imported/player_idle-Sheet.png-562c50d514fe8e8b95709ef7fdccefcd.ctex"]
+source_file="res://Player/character_crosshair.png"
+dest_files=["res://.godot/imported/character_crosshair.png-9f9dbfc08aee99eed2c03bf58c5e3543.ctex"]
 
 [params]
 

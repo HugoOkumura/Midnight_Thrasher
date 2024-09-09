@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd3txyy3nbm5n"]
+[gd_scene load_steps=8 format=3 uid="uid://cd3txyy3nbm5n"]
 
 [ext_resource type="Script" path="res://Inimigo/InimigoMorto.gd" id="1_dd8ph"]
 [ext_resource type="Texture2D" uid="uid://cndk2uf8pn41y" path="res://sprites/Personagem/enemy_death.png" id="1_gomm7"]
+[ext_resource type="PackedScene" uid="uid://3bbcytp70ij3" path="res://Inimigo/drop.tscn" id="3_f5asb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3r0y5"]
 atlas = ExtResource("1_gomm7")
@@ -49,3 +50,5 @@ script = ExtResource("1_dd8ph")
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_gd550")
 animation = &"morte_1"
+
+[node name="drop" parent="." instance=ExtResource("3_f5asb")]

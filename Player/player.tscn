@@ -1,10 +1,10 @@
 [gd_scene load_steps=60 format=3 uid="uid://cbla2kogsrsn4"]
 
-[ext_resource type="Script" path="res://Arquivos_de_teste/Player.gd" id="1_vdndn"]
-[ext_resource type="Texture2D" uid="uid://k8a7wv1ya7t4" path="res://Arquivos_de_teste/DevGames_parte1/DevGames_parte1/player/player_punch-Sheet.png" id="2_itviq"]
-[ext_resource type="Texture2D" uid="uid://cm7pflb1wqokh" path="res://Arquivos_de_teste/DevGames_parte1/DevGames_parte1/player/player_idle-Sheet.png" id="2_pegtm"]
-[ext_resource type="Texture2D" uid="uid://bsjva61fnkg12" path="res://Arquivos_de_teste/DevGames_parte1/DevGames_parte1/player/player_run-Sheet.png" id="3_45l7d"]
-[ext_resource type="Texture2D" uid="uid://dsm101h33ohxo" path="res://Arquivos_de_teste/DevGames_parte1/DevGames_parte1/player/player_run_shot_pistol.png" id="4_w5cbt"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_vdndn"]
+[ext_resource type="Texture2D" uid="uid://k8a7wv1ya7t4" path="res://Player/DevGames_parte1/DevGames_parte1/player/player_punch-Sheet.png" id="2_itviq"]
+[ext_resource type="Texture2D" uid="uid://cm7pflb1wqokh" path="res://Player/DevGames_parte1/DevGames_parte1/player/player_idle-Sheet.png" id="2_pegtm"]
+[ext_resource type="Texture2D" uid="uid://bsjva61fnkg12" path="res://Player/DevGames_parte1/DevGames_parte1/player/player_run-Sheet.png" id="3_45l7d"]
+[ext_resource type="Texture2D" uid="uid://dsm101h33ohxo" path="res://Player/DevGames_parte1/DevGames_parte1/player/player_run_shot_pistol.png" id="4_w5cbt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_atq5a"]
 atlas = ExtResource("2_itviq")

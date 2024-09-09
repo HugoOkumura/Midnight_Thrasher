@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bntuqwuaadg50"
-path="res://.godot/imported/bullet_n1.png-64df6420e1c227b220b3309371b94716.ctex"
+uid="uid://k8a7wv1ya7t4"
+path="res://.godot/imported/player_punch-Sheet.png-00faec0028ca4da8b928770d7d22b8b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arquivos_de_teste/bullet_n1.png"
-dest_files=["res://.godot/imported/bullet_n1.png-64df6420e1c227b220b3309371b94716.ctex"]
+source_file="res://Player/DevGames_parte1/DevGames_parte1/player/player_punch-Sheet.png"
+dest_files=["res://.godot/imported/player_punch-Sheet.png-00faec0028ca4da8b928770d7d22b8b3.ctex"]
 
 [params]
 

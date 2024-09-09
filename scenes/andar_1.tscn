@@ -1,9 +1,9 @@
 [gd_scene load_steps=33 format=3 uid="uid://cxtkodkf6lhi7"]
 
-[ext_resource type="Script" path="res://Arquivos_de_teste/ARENA.gd" id="1_6hfmf"]
+[ext_resource type="Script" path="res://Player/ARENA.gd" id="1_6hfmf"]
 [ext_resource type="Texture2D" uid="uid://i8kxsn1vjd70" path="res://sprites/TileSetPart1.png" id="1_47a4l"]
 [ext_resource type="PackedScene" uid="uid://bdoeksfolujqb" path="res://Inimigo/Inimigo.tscn" id="2_ft4cb"]
-[ext_resource type="PackedScene" uid="uid://cbla2kogsrsn4" path="res://Arquivos_de_teste/player.tscn" id="3_cx0t4"]
+[ext_resource type="PackedScene" uid="uid://cbla2kogsrsn4" path="res://Player/player.tscn" id="3_cx0t4"]
 [ext_resource type="PackedScene" uid="uid://c18b3a1yuk7p2" path="res://Arma/Arma.tscn" id="4_752r0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iqkj1"]

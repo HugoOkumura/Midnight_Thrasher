@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsjva61fnkg12"
-path="res://.godot/imported/player_run-Sheet.png-e8d9cbc524ac4b6c72592e16e3e5afa9.ctex"
+uid="uid://bmwr4l82jg5cy"
+path="res://.godot/imported/Sprite-Itens-drop-Sheet.png-8502b60c479b8fcb7dbf7f5e27a529cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arquivos_de_teste/DevGames_parte1/DevGames_parte1/player/player_run-Sheet.png"
-dest_files=["res://.godot/imported/player_run-Sheet.png-e8d9cbc524ac4b6c72592e16e3e5afa9.ctex"]
+source_file="res://sprites/novas/Sprite-Itens-drop-Sheet.png"
+dest_files=["res://.godot/imported/Sprite-Itens-drop-Sheet.png-8502b60c479b8fcb7dbf7f5e27a529cc.ctex"]
 
 [params]
 

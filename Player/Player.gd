@@ -3,7 +3,7 @@ class_name Jogador
 
 const SPEED: float = 200
 const TURN_SPEED: float = 5
-const CROSSHAIR = preload("res://Arquivos_de_teste/character_crosshair.png")
+const CROSSHAIR = preload("res://Player/character_crosshair.png")
 
 @onready var _pl = $"."
 @onready var _animated_sprite = $AnimatedSprite2D
@@ -18,6 +18,7 @@ var can_shoot := true
 var _input: Vector2 = Vector2.ZERO
 var _direction: Vector2 = Vector2.ZERO
 var _screen_size: Vector2
+var weapon_nearby: Arma = null
 #var bullet = preload("res://Arma/Bullet.tscn")
 #var recarregado = true
 var hp = 2
@@ -56,7 +57,22 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and arma_player.current_arma.can_shoot:
 		arma_player.fire()
-	
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and arma_player.current_arma.can_shoot:
+		if !Global.trocando_arma:	
+			if !Global.faca_equipada:
+				Global.trocando_arma = true
+				Global.faca_equipada = true
+				arma_player.change_arma("Faca")
+			else:
+				if !Global.sem_municao:
+					Global.trocando_arma = true
+					Global.faca_equipada = false
+					arma_player.change_arma(Global.arma_principal)
+	if Input.is_action_just_pressed("ui_pickup_weapon"):  # "F"
+		if weapon_nearby:
+			equip_weapon(weapon_nearby)
+			weapon_nearby = null
+			print("Weapon picked up!")
 	if hp <= 0:
 		get_tree().change_scene_to_file("res://gameover/gameover.tscn")
 		
@@ -90,8 +106,14 @@ func _aim_burster():
 func got_hit(dmg:int):
 	hp -= dmg
 
-#func _on_tempo_de_recarga_timeout():
-	#recarregado = true
+func equip_weapon(weapon: Arma):
+	Global.arma_principal = weapon
+	print("Equipped: " + weapon.name)
+	
+func set_weapon_nearby(weapon: Arma):
+	if weapon:
+		print("Weapon nearby: " + weapon.name + ". Press 'F' to pick up.")
+	weapon_nearby = weapon
 
 
 func _on_hitbox_area_entered(area):

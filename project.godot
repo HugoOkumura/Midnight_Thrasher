@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://Arquivos_de_teste/GLOBAL.gd"
+Global="*res://Player/GLOBAL.gd"
 
 [input]
 

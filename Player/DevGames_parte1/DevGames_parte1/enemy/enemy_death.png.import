@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdcrcfil5ajlq"
-path="res://.godot/imported/character_crosshair.png-d979f97ae058739abc535b7f1d5d1d0b.ctex"
+uid="uid://dbnk0bi1hwwo4"
+path="res://.godot/imported/enemy_death.png-de53186bf1d7431abdf01fbe99bb74f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arquivos_de_teste/character_crosshair.png"
-dest_files=["res://.godot/imported/character_crosshair.png-d979f97ae058739abc535b7f1d5d1d0b.ctex"]
+source_file="res://Player/DevGames_parte1/DevGames_parte1/enemy/enemy_death.png"
+dest_files=["res://.godot/imported/enemy_death.png-de53186bf1d7431abdf01fbe99bb74f2.ctex"]
 
 [params]
 

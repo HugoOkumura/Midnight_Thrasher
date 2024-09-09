@@ -49,3 +49,4 @@ func change_arma(new_arma_name:String):
 	await change_time.timeout
 	current_arma = new
 	current_arma.set_arma_params()
+	Global.trocando_arma = false

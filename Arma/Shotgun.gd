@@ -51,6 +51,8 @@ func fire_bullet() -> void:
 	if arma.get_shooter() is Jogador and no_ammo():
 		tempo_entre_tiros.stop()
 		arma.change_arma("Faca")
+		Global.sem_municao = true
+		Global.faca_equipada = true
 	else:
 		tempo_entre_tiros.start()
 

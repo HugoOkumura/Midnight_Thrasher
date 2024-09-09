@@ -63,6 +63,8 @@ func fire_bullet() -> void:
 		if municao == 0:
 			tempo_entre_tiros.stop()
 			arma.change_arma("Faca")
+			Global.sem_municao = true
+			Global.faca_equipada = true
 		else:
 			tempo_entre_tiros.start()
 

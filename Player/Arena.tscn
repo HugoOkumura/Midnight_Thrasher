@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://dsc51u1uihhjd"]
 
-[ext_resource type="Script" path="res://Arquivos_de_teste/ARENA.gd" id="1_d0mc7"]
-[ext_resource type="PackedScene" uid="uid://cbla2kogsrsn4" path="res://Arquivos_de_teste/player.tscn" id="1_jdsmq"]
+[ext_resource type="Script" path="res://Player/ARENA.gd" id="1_d0mc7"]
+[ext_resource type="PackedScene" uid="uid://cbla2kogsrsn4" path="res://Player/player.tscn" id="1_jdsmq"]
+
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_d0mc7")

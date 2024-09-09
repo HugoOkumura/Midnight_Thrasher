@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpj1ekbx3w273"
-path="res://.godot/imported/enemy_idle-Sheet.png-8028d69d151fb90a3ad055f4ded54047.ctex"
+uid="uid://bexo85887upvp"
+path="res://.godot/imported/Sprite-MachineGun.png-59ab5aca8c4e6623d8828dfd0b70fbdc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arquivos_de_teste/DevGames_parte1/DevGames_parte1/enemy/enemy_idle-Sheet.png"
-dest_files=["res://.godot/imported/enemy_idle-Sheet.png-8028d69d151fb90a3ad055f4ded54047.ctex"]
+source_file="res://sprites/novas/Sprite-MachineGun.png"
+dest_files=["res://.godot/imported/Sprite-MachineGun.png-59ab5aca8c4e6623d8828dfd0b70fbdc.ctex"]
 
 [params]
 
