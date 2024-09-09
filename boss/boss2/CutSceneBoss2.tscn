@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpt235c0s0rue"]
+
+[ext_resource type="PackedScene" uid="uid://dxmt4cycycamg" path="res://boss/cut_scene.tscn" id="1_41ms4"]
+[ext_resource type="PackedScene" uid="uid://ccmix0ej4sjij" path="res://boss/boss2/boss_two_level.tscn" id="2_7r2pg"]
+
+[node name="CutSceneBoss2" type="Node2D"]
+
+[node name="CutScene" parent="." instance=ExtResource("1_41ms4")]
+SceneNext = ExtResource("2_7r2pg")

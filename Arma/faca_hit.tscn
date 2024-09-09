@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvnnw2e270fwn"]
+[gd_scene load_steps=3 format=3 uid="uid://pk4gnvcjbpha"]
 
 [ext_resource type="Script" path="res://Arma/faca_hit.gd" id="1_ol4ed"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3k021"]
 size = Vector2(30, 25)
 
-[node name="Faca hit" type="Area2D"]
+[node name="Faca hit" type="Area2D" groups=["DanoArma"]]
 collision_layer = 15
 collision_mask = 21
 script = ExtResource("1_ol4ed")
