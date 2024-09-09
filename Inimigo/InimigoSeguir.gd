@@ -10,8 +10,14 @@ var player_position : Vector2
 var nav_point 
 
 func Enter(_args):
-	#arma_instance = arma_inimigo.instantiate()
-	ani_sprite.play("seguir_armado")
+	var animation = arma_inimigo.current_arma.name
+	animation = animation.left(1)
+	if animation != "F":
+		animation = "seguir_armado_" + animation
+	else:
+		animation = "patrulhar"
+	#print(animation)
+	ani_sprite.play(animation)
 
 func Physics_Update(_delta: float):
 	player_position = inimigo.get_target().global_position

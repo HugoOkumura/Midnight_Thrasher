@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://chnd6g4e8lyae"]
+
+[ext_resource type="Script" path="res://HUD/score.gd" id="1_sdtdb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3nk10"]
+font_size = 32
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.309804)
+shadow_offset = Vector2(3, 3)
+
+[node name="Score" type="NinePatchRect"]
+custom_minimum_size = Vector2(500, 64)
+offset_right = 500.0
+offset_bottom = 64.0
+region_rect = Rect2(8, 8, 8, 8)
+script = ExtResource("1_sdtdb")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -22.5
+offset_bottom = 22.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_3nk10")
+horizontal_alignment = 2

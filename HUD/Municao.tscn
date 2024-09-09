@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnhv24sgfw8hd"]
+
+[ext_resource type="Script" path="res://HUD/Municao.gd" id="1_qe15r"]
+[ext_resource type="Texture2D" uid="uid://ben5u3rqbt6sh" path="res://sprites/Outros/idk.png" id="1_stlp2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e17f8"]
+font_size = 60
+
+[node name="Municao" type="NinePatchRect"]
+custom_minimum_size = Vector2(152, 64)
+offset_right = 214.0
+offset_bottom = 113.0
+texture = ExtResource("1_stlp2")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+script = ExtResource("1_qe15r")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -101.0
+offset_top = -51.5
+offset_bottom = 47.5
+grow_horizontal = 0
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -55.5
+offset_right = 109.0
+offset_bottom = 53.5
+grow_vertical = 2
+text = "--
+"
+label_settings = SubResource("LabelSettings_e17f8")
+horizontal_alignment = 1
+vertical_alignment = 1

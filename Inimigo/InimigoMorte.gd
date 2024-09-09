@@ -15,8 +15,10 @@ func Enter(_args):
 	corpo_instance.rotation = inimigo.rotation
 	corpo_instance.sprite_name = death_ani[death]
 
-	Global.enemy -= 1
+	Global.reduce_enemy_count()
 	print("enemy left: ",Global.enemy)
+	#get_tree().current_scene.call_deferred("add_child", corpo_instance)
+	#inimigo.queue_free()
 	if Global.enemy <= 0:
 		get_tree().change_scene_to_file("res://endgame/endgame.tscn")
 	else:

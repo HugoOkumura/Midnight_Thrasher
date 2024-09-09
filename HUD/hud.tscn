@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://7x8xqmt0e6nb"]
+
+[ext_resource type="Script" path="res://HUD/hud.gd" id="1_msrbt"]
+[ext_resource type="PackedScene" uid="uid://chnd6g4e8lyae" path="res://HUD/score.tscn" id="1_qxbpb"]
+[ext_resource type="PackedScene" uid="uid://bnhv24sgfw8hd" path="res://HUD/Municao.tscn" id="2_wy2ky"]
+[ext_resource type="PackedScene" uid="uid://cqopc5eq8gxm" path="res://HUD/Vida.tscn" id="3_tkahv"]
+
+[node name="HUD" type="Control" groups=["HUD"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = 4.0
+offset_right = -9.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_msrbt")
+
+[node name="Status" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -96.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Vida" parent="Status" instance=ExtResource("3_tkahv")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="Municao" parent="Status" instance=ExtResource("2_wy2ky")]
+custom_minimum_size = Vector2(192, 96)
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Pontuacao" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -500.0
+offset_bottom = 64.0
+grow_horizontal = 0
+
+[node name="Score" parent="Pontuacao" instance=ExtResource("1_qxbpb")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4

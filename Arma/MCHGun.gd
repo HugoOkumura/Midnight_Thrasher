@@ -31,6 +31,7 @@ func set_arma_params():
 	damage = 2
 	municao = 12
 	can_shoot = true
+	combo_time = 1
 	tempo_entre_tiros.setup()
 
 func _create_bullet(direction: float) -> void:

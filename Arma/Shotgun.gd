@@ -17,6 +17,7 @@ func set_arma_params():
 	aperture_angle = deg_to_rad(90)
 	damage = 2
 	can_shoot = true
+	combo_time = 2
 	if arma.get_shooter() is Jogador:
 		municao = 2
 	shtgn_time.wait_time = 0.03
