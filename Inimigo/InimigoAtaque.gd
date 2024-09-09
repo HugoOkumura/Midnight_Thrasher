@@ -13,7 +13,11 @@ var nav_point
 
 
 func Enter(_args):
-	ani_sprite.play("parado_armado")
+	var animation = arma_inimigo.current_arma.name
+	animation = animation.left(1)
+	animation = "parado_armado_" + animation
+	#print(animation)
+	ani_sprite.play(animation)
 	if arma_inimigo.current_arma.can_shoot:
 		shoot()
 	

@@ -14,6 +14,7 @@ func set_arma_params():
 	aperture_angle = 0
 	damage = 1
 	can_shoot = true
+	combo_time = 6
 	tempo_entre_tiros.setup()
 
 func _create_bullet(direction: float) -> void:

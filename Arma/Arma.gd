@@ -15,6 +15,7 @@ var shot_distance :float
 var damage : int
 var can_shoot : bool
 var municao : int
+var combo_time : float
 
 func _ready():
 	shooter = self.get_parent()
@@ -24,7 +25,11 @@ func _ready():
 	if initial_arma:
 		current_arma = armas_dic.get(initial_arma.to_lower())
 		current_arma.set_arma_params()
-	
+		if shooter is Jogador:
+			await get_tree().create_timer(0.01).timeout
+			shooter.hud.municao.change_arma(initial_arma)
+
+
 func set_arma_params():
 	pass
 
@@ -45,6 +50,8 @@ func change_arma(new_arma_name:String):
 	var new = armas_dic.get(new_arma_name.to_lower())
 	if !new:
 		return
+	if shooter is Jogador:
+		shooter.hud.municao.change_arma(new_arma_name)
 	await change_time.timeout
 	current_arma = new
 	current_arma.set_arma_params()

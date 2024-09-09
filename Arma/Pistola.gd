@@ -15,6 +15,7 @@ func set_arma_params():
 	aperture_angle = 0
 	damage = 2
 	can_shoot = true
+	combo_time = 3
 	if arma.get_shooter() is Jogador:
 		municao = 7
 	

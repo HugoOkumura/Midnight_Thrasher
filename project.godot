@@ -17,7 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://Arquivos_de_teste/GLOBAL.gd"
+Global="*res://Global/GLOBAL.gd"
+GlobalT="*res://Global/GLOBAL_TIMER.gd"
 
 [input]
 
@@ -66,3 +67,8 @@ ui_down={
 [navigation]
 
 2d/default_edge_connection_margin=32.0
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

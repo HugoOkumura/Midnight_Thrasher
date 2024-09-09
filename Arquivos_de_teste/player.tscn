@@ -437,4 +437,3 @@ rotation = -1.5708
 shape = SubResource("RectangleShape2D_1odl6")
 
 [connection signal="timeout" from="tempo de recarga" to="." method="_on_tempo_de_recarga_timeout"]
-[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

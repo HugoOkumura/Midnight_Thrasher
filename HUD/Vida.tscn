@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqopc5eq8gxm"]
+
+[ext_resource type="Script" path="res://HUD/Vida.gd" id="1_06kja"]
+[ext_resource type="Texture2D" uid="uid://ben5u3rqbt6sh" path="res://sprites/Outros/idk.png" id="1_qspyr"]
+[ext_resource type="Texture2D" uid="uid://cyvp0q8rppdqp" path="res://sprites/Outros/Full_heart.png" id="2_6mqcd"]
+
+[node name="Vida" type="NinePatchRect"]
+custom_minimum_size = Vector2(96, 96)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -648.0
+offset_right = 104.0
+offset_bottom = -551.0
+grow_vertical = 0
+size_flags_horizontal = 0
+texture = ExtResource("1_qspyr")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+script = ExtResource("1_06kja")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -56.5
+offset_right = 58.0
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("2_6mqcd")

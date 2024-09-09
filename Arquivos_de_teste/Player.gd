@@ -12,6 +12,7 @@ const CROSSHAIR = preload("res://Arquivos_de_teste/character_crosshair.png")
 	"right": "ui_right",
 	"up":    "ui_up", 
 	"down":  "ui_down"}
+
 @onready var arma_player = $Arma
 
 var can_shoot := true
@@ -23,10 +24,14 @@ var _screen_size: Vector2
 var hp = 2
 var colete = false
 var morto = false
+var hud : HUD
 
 signal hit
 
 func _ready() -> void:
+	hud = get_tree().get_first_node_in_group("HUD")
+	await get_tree().create_timer(0.01).timeout
+	hud.vida.update_health(hp)
 	_screen_size = get_viewport_rect().size
 	Input.set_custom_mouse_cursor(CROSSHAIR)
 	z_index = 2
@@ -56,10 +61,11 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and arma_player.current_arma.can_shoot:
 		arma_player.fire()
+		hud.municao.change_ammo(arma_player.current_arma.municao)
 	
 	if hp <= 0:
 		get_tree().change_scene_to_file("res://gameover/gameover.tscn")
-		
+	
 
 
 func _move_in_any_direction(_delta: float) -> void:
@@ -88,7 +94,13 @@ func _aim_burster():
 	_pl.look_at(get_global_mouse_position())
 
 func got_hit(dmg:int):
-	hp -= dmg
+	if colete:
+		colete = false
+		hp -= 2
+	else:
+		hp -= dmg
+		
+	hud.vida.update_health(hp)
 
 #func _on_tempo_de_recarga_timeout():
 	#recarregado = true
