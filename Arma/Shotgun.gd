@@ -11,14 +11,19 @@ class_name Shotgun
 var bllt := true
 
 func set_arma_params():
-	shoot_time = 1
+	shoot_time = 2
 	shot_distance = 150
 	bullets_per_shot = 3
 	aperture_angle = deg_to_rad(90)
 	damage = 2
 	can_shoot = true
-	if arma.get_shooter() is Jogador:
-		municao = 2
+	if arma.get_shooter() is Jogador: 
+		if Global.municao == 0:
+			municao = 2
+			Global.municao = municao
+		else:
+			municao = Global.municao
+			print ("minição atual é ", municao)
 	shtgn_time.wait_time = 0.03
 	tempo_entre_tiros.setup()
 
@@ -50,9 +55,9 @@ func fire_bullet() -> void:
 	
 	if arma.get_shooter() is Jogador and no_ammo():
 		tempo_entre_tiros.stop()
-		arma.change_arma("Faca")
-		Global.sem_municao = true
+		#Global.sem_municao = true
 		Global.faca_equipada = true
+		arma.change_arma("Faca")
 	else:
 		tempo_entre_tiros.start()
 
@@ -64,6 +69,7 @@ func _on_tempo_entre_tiros_timeout():
 
 func no_ammo() -> bool:
 	municao -= 1
+	Global.municao = municao
 	if municao == 0:
 		return true
 	else: return false

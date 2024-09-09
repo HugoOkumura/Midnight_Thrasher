@@ -22,6 +22,11 @@ func _ready():
 		if child is Arma:
 			armas_dic[child.name.to_lower()] = child
 	if initial_arma:
+		if get_shooter() is Jogador:
+			Global.arma_principal = initial_arma
+			Global.arma = Global.palavra_para_inteiro(initial_arma)
+			Global.faca_equipada = false
+		Global.municao = 0
 		current_arma = armas_dic.get(initial_arma.to_lower())
 		current_arma.set_arma_params()
 	

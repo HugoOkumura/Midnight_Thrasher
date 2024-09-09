@@ -24,8 +24,19 @@ func equip_item(item_name: String):
 
 func _on_area_2d_body_entered(body):
 	if body is Jogador:
-			print("vi a arma "+ arma)
-			Global.arma_principal = arma
-			body.arma_player.change_arma(Global.arma_principal)
-			queue_free()
+			if arma == "Colete":
+				if !body.colete:
+					print("meu "+ arma + "me protege")
+					body.colete = true
+					queue_free()
+				
+			elif Global.municao == 0:
+				print("vi a arma "+ arma)
+				Global.arma_principal = arma
+				Global.municao = 0
+				Global.trocando_arma = true
+				Global.faca_equipada = false
+				Global.arma = Global.palavra_para_inteiro(arma)
+				body.arma_player.change_arma(Global.arma_principal)
+				queue_free()
 

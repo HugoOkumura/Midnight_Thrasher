@@ -19,6 +19,9 @@ var _input: Vector2 = Vector2.ZERO
 var _direction: Vector2 = Vector2.ZERO
 var _screen_size: Vector2
 var weapon_nearby
+var arma1 = "Pistola"
+var arma2 = "MCHGun"
+var arma3 = "Shotgun" 
 #var bullet = preload("res://Arma/Bullet.tscn")
 #var recarregado = true
 var hp = 2
@@ -36,15 +39,32 @@ func _process(_delta: float) -> void:
 
 	if Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_up") || Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_down"):
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			#_animated_sprite.play("PUNCH_RUN")
-			_animated_sprite.play("SHOOT_RUN")
+			if Global.faca_equipada:
+				_animated_sprite.play("FACADA_RUN")
+			else:
+				if Global.arma == 0:
+					_animated_sprite.play("SHOOT_RUN_"+"Pistola")
+				elif Global.arma == 1:
+					_animated_sprite.play("SHOOT_RUN_"+"MCHGun")
+				elif Global.arma == 2:
+					_animated_sprite.play("SHOOT_RUN_"+"Shotgun")
 		else:
 			_animated_sprite.play("RUN")
 
 	else:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			#_animated_sprite.play("PUNCH")
-			_animated_sprite.play("SHOOT")
+			if Global.faca_equipada:
+				_animated_sprite.play("FACADA")
+			else:
+				if Global.arma == 0:
+					print("Cheguei aqui")
+					_animated_sprite.play("Pistola")
+				elif Global.arma == 1:
+					_animated_sprite.play("MCHGun")
+					print("Cheguei aqui")
+				elif Global.arma == 2:
+					_animated_sprite.play("Shotgun")
+					print("Cheguei aqui")
 		else:
 			_animated_sprite.play("STOPED")
 			
@@ -64,7 +84,7 @@ func _process(_delta: float) -> void:
 				Global.faca_equipada = true
 				arma_player.change_arma("Faca")
 			else:
-				if !Global.sem_municao:
+				if Global.municao > 0:
 					Global.trocando_arma = true
 					Global.faca_equipada = false
 					arma_player.change_arma(Global.arma_principal)
@@ -103,9 +123,14 @@ func _aim_burster():
 	_pl.look_at(get_global_mouse_position())
 
 func got_hit(dmg:int):
-	hp -= dmg
+	if colete:
+		colete = false
+		print("me sinto indefeso")
+	else:
+		hp -= dmg
+		Global.hp = hp
 
-func _on_hitbox_area_entered(area):
-	if area.is_in_group("Dano2"): #######mudar para esse grupo
-		area.queue_free()
-		hp -= 1
+#func _on_hitbox_area_entered(area):
+	#if area.is_in_group("Dano2"): #######mudar para esse grupo
+		#area.queue_free()
+		#hp -= 1

@@ -24,12 +24,20 @@ func _physics_process(delta):
 		municao = 12
 
 func set_arma_params():
-	shoot_time = 0.1
+	shoot_time = 0.5
 	shot_distance = 250
 	bullets_per_shot = 1
 	aperture_angle = deg_to_rad(30)
 	damage = 2
-	municao = 12
+	if arma.get_shooter() is Jogador: 
+		if Global.municao == 0:
+			municao = 12
+			Global.municao = municao
+		else:
+			municao = Global.municao
+			print ("minição atual é ", municao)
+	else:
+		municao = 12
 	can_shoot = true
 	tempo_entre_tiros.setup()
 
@@ -54,6 +62,7 @@ func fire_bullet() -> void:
 	_create_bullet(direction + offset)
 	
 	municao -= 1
+	Global.municao = municao
 	if arma.get_shooter() is Inimigo:
 		if municao == 0:
 			carregado = false
@@ -62,9 +71,9 @@ func fire_bullet() -> void:
 	else:
 		if municao == 0:
 			tempo_entre_tiros.stop()
-			arma.change_arma("Faca")
-			Global.sem_municao = true
+			#Global.sem_municao = true
 			Global.faca_equipada = true
+			arma.change_arma("Faca")
 		else:
 			tempo_entre_tiros.start()
 

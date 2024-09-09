@@ -9,14 +9,19 @@ class_name  Pistola
 
 
 func set_arma_params():
-	shoot_time = 0.7
+	shoot_time = 1.5
 	shot_distance = 100
 	bullets_per_shot = 1
 	aperture_angle = 0
 	damage = 2
 	can_shoot = true
-	if arma.get_shooter() is Jogador:
-		municao = 7
+	if arma.get_shooter() is Jogador: 
+		if Global.municao == 0:
+			municao = 7
+			Global.municao = municao
+		else:
+			municao = Global.municao
+			print ("minição atual é ", municao)
 	
 	tempo_entre_tiros.setup()
 	
@@ -40,9 +45,9 @@ func fire_bullet() -> void:
 	
 	if arma.get_shooter() is Jogador and no_ammo():
 		tempo_entre_tiros.stop()
-		arma.change_arma("Faca")
-		Global.sem_municao = true
+		#Global.sem_municao = true
 		Global.faca_equipada = true
+		arma.change_arma("Faca")
 	else:
 		tempo_entre_tiros.start()
 
@@ -57,6 +62,7 @@ func _on_tempo_entre_tiros_timeout():
 
 func no_ammo() -> bool:
 	municao -= 1
+	Global.municao = municao
 	if municao == 0:
 		return true
 	else: return false
