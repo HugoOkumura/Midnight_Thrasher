@@ -18,7 +18,7 @@ var can_shoot := true
 var _input: Vector2 = Vector2.ZERO
 var _direction: Vector2 = Vector2.ZERO
 var _screen_size: Vector2
-var weapon_nearby: Arma = null
+var weapon_nearby
 #var bullet = preload("res://Arma/Bullet.tscn")
 #var recarregado = true
 var hp = 2
@@ -68,11 +68,10 @@ func _process(_delta: float) -> void:
 					Global.trocando_arma = true
 					Global.faca_equipada = false
 					arma_player.change_arma(Global.arma_principal)
-	if Input.is_action_just_pressed("ui_pickup_weapon"):  # "F"
-		if weapon_nearby:
-			equip_weapon(weapon_nearby)
-			weapon_nearby = null
-			print("Weapon picked up!")
+		#if weapon_nearby:
+			#equip_weapon(weapon_nearby)
+			#weapon_nearby = null
+			#print("Weapon picked up!")
 	if hp <= 0:
 		get_tree().change_scene_to_file("res://gameover/gameover.tscn")
 		
@@ -105,16 +104,6 @@ func _aim_burster():
 
 func got_hit(dmg:int):
 	hp -= dmg
-
-func equip_weapon(weapon: Arma):
-	Global.arma_principal = weapon
-	print("Equipped: " + weapon.name)
-	
-func set_weapon_nearby(weapon: Arma):
-	if weapon:
-		print("Weapon nearby: " + weapon.name + ". Press 'F' to pick up.")
-	weapon_nearby = weapon
-
 
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("Dano2"): #######mudar para esse grupo
