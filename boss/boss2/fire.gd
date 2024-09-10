@@ -1,5 +1,5 @@
 extends StateBoss
-class_name FireStateBoss2
+class_name FireStateBos2
 @onready var fire_reload = $"../../FireReload"
 @onready var arma = $"../../Arma"
 @onready var tiroSound = $"../../Tiro"

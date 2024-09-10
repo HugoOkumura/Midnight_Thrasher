@@ -5,6 +5,7 @@ class_name Inimigo
 @onready var nav2d = $NavigationAgent2D
 @onready var statesm = $"State Machine" as StateMachine
 
+@export var path2d : Path2D
 @export var rotation_speed = 2
 @export var walk_speed = 150
 @export var nav_target : Jogador = null

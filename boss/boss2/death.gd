@@ -1,5 +1,5 @@
 extends StateBoss
-class_name deathStateBoss2
+class_name deathStateBos2
 
 @onready var sprite_corpo = $"../../SpriteCorpo"
 @onready var sprite_morto = $"../../SpriteMorto"
@@ -20,6 +20,7 @@ func enter():
 	sprite_morto.visible = true
 	deathSound.play(0.0)
 	collision_shape_2d.queue_free()
+	Global.reduce_enemy_count()
 
 func exit():
 	super.exit()

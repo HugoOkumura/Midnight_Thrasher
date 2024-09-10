@@ -11,8 +11,6 @@ class_name deathState
 # Called when the node enters the scene tree for the first time
 var transition_wait = false
 
-
-
 func transition():
 	pass
 		
@@ -23,6 +21,7 @@ func enter():
 	sprite_corpo.visible = false
 	sprite_morto.visible = true
 	deathSound.play(0.0)
+	Global.reduce_enemy_count()
 
 func exit():
 	super.exit()

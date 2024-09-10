@@ -1,13 +1,15 @@
 extends Node
 
 var criacao_no_pai = null
-var enemy = 3
+var enemy :int
 var kill_combo = 1
+var phase_clear := false
 
 var score_total :int = 0
 var score_phase : int = 0
 var phase_score_multiplier : float = 1.0
 var time = 0
+
 
 func _process(delta):
 	time += delta
@@ -33,6 +35,8 @@ func update_phase_score(score:int, combo: int):
 func reduce_enemy_count():
 	enemy -= 1
 	add_to_score()
+	if enemy == 0:
+		phase_clear = true
 
 func add_to_score():
 	var player = get_tree().get_first_node_in_group("Jogador")

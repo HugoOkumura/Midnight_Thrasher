@@ -17,9 +17,9 @@ func _process(delta):
 func _on_body_entered(body):
 	if body == null:
 		return
-	if body is Jogador and shooter is Inimigo:
+	if body is Jogador and shooter.is_in_group("Inimigo"):
 		body.got_hit(1)
 		queue_free()
-	if body is Inimigo and shooter is Jogador:
+	if body.is_in_group("Inimigo") and shooter is Jogador:
 		body.got_hit(1)
 		queue_free()

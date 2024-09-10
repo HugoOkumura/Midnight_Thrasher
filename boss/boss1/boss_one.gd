@@ -8,11 +8,11 @@ extends CharacterBody2D
 @onready var sprite_corpo = $SpriteCorpo
 @onready var finite_state_machine = $FiniteStateMachine
 
-var hp = 3
+var hp = 6
 var direcVector = Vector2(-1.0,0.0)
 var direcao = Vector2(0,0)
 var _direction: Vector2 = Vector2.ZERO
-var velocidade = 500
+var velocidade = 150
 var direction = Vector2.RIGHT
 
 var dict_animation = {
@@ -55,14 +55,14 @@ func Setanimacaoidle():
 	animatedLeg.play('Idle_leg')
 
 
+func got_hit(dmg:int):
+	hp -= dmg
+	if hp <= 0:
+		find_child('FiniteStateMachine').change_state('death') 
 
-
-
-
-func _on_dano_area_entered(area):
-	if area.is_in_group("DanoArma"):
-		hp -= 1
-		if hp == 0:
-			find_child('FiniteStateMachine').change_state('death') 
-	
-	
+#func _on_dano_area_entered(area):
+	#if area.is_in_group("DanoArma"):
+		#hp -= 1
+		#if hp == 0:
+			#find_child('FiniteStateMachine').change_state('death') 
+	#
