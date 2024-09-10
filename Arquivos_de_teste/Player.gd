@@ -21,7 +21,7 @@ var _direction: Vector2 = Vector2.ZERO
 var _screen_size: Vector2
 #var bullet = preload("res://Arma/Bullet.tscn")
 #var recarregado = true
-var hp = 2
+var hp = 800
 var colete = false
 var morto = false
 var hud : HUD
@@ -79,13 +79,13 @@ func _move_and_rotate(delta: float) -> void:
 	
 	velocity = _input * SPEED
 	move_and_slide()
-	_clamp_screen()
+	#_clamp_screen()
 
 
-func _clamp_screen() -> void:
-	position.x = clamp(position.x, 0, _screen_size.x)
-	position.y = clamp(position.y, 0, _screen_size.y)
-
+#func _clamp_screen() -> void:
+	#position.x = clamp(position.x, 0, _screen_size.x)
+	#position.y = clamp(position.y, 0, _screen_size.y)
+#
 func _wrap_screen() -> void:
 	position.x = wrap(position.x, 0, _screen_size.x)
 	position.y = wrap(position.y, 0, _screen_size.y)

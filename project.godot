@@ -19,6 +19,23 @@ config/icon="res://icon.svg"
 
 Global="*res://Global/GLOBAL.gd"
 GlobalT="*res://Global/GLOBAL_TIMER.gd"
+SceneManager="*res://Global/SceneManager.gd"
+
+[debug]
+
+file_logging/solver/contact_recycle_radius=1.0
+file_logging/size/window_height_override=0
+file_logging/size/window_width_override=0
+file_logging/size/viewport_height=648
+file_logging/size/viewport_width=1152
+file_logging/stretch/mode="disabled"
+
+[display]
+
+window/size/viewport_height=720
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
 
 [input]
 
