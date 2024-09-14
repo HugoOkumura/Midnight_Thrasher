@@ -319,6 +319,5 @@ wait_time = 0.5
 [node name="Fire" type="Timer" parent="."]
 wait_time = 3.0
 
-[connection signal="area_entered" from="Dano" to="." method="_on_dano_area_entered"]
 [connection signal="timeout" from="FireReload" to="FiniteStateMachine/Fire" method="_on_fire_reload_timeout"]
 [connection signal="timeout" from="Fire" to="FiniteStateMachine/Idle" method="_on_fire_timeout"]

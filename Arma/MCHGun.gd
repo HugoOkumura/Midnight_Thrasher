@@ -1,5 +1,5 @@
 extends Arma
-class_name  MCHGun
+class_name MCHGun
 
 @onready var projectile = load("res://Arma/Bullet.tscn")
 @onready var bullet_point = $"../Bullet Point"

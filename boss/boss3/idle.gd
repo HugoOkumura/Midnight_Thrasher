@@ -27,10 +27,10 @@ func exit():
 func process_state(_delta):
 	owner.animatedBody.play('run')
 	owner.animatedLeg.play('runleg')
-	if owner.position.x < 200:
+	if owner.position.x < 250:
 		owner.direcVector = Vector2(1.0,0.0)
 		
-	elif owner.position.x >  800:
+	elif owner.position.x >  700:
 		owner.direcVector =Vector2(-1.0,0.0)
 		
 	owner.velocity = owner.direcVector * owner.velocidade
