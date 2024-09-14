@@ -3,9 +3,9 @@
 [ext_resource type="TileSet" uid="uid://dupnabqxrmcrf" path="res://andar_1.tres" id="1_qu8wu"]
 [ext_resource type="Script" path="res://scenes/boss_fase_1.gd" id="1_t47xy"]
 [ext_resource type="PackedScene" uid="uid://d42n1e5h1m3a" path="res://boss/boss1/boss_one.tscn" id="2_waoon"]
-[ext_resource type="PackedScene" uid="uid://i1xtcoqer03r" path="res://Jogador/player.tscn" id="3_qkv3p"]
 [ext_resource type="PackedScene" uid="uid://tg4ocn31r3t1" path="res://Arma/Arma.tscn" id="4_h7gn0"]
 [ext_resource type="PackedScene" uid="uid://7x8xqmt0e6nb" path="res://HUD/hud.tscn" id="5_ltp2t"]
+[ext_resource type="PackedScene" uid="uid://cbla2kogsrsn4" path="res://Arquivos_de_teste/player.tscn" id="6_b0ty1"]
 [ext_resource type="Script" path="res://scenes/proxima_fase.gd" id="6_b0x4f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0y88y"]
@@ -35,17 +35,6 @@ layer_3/tile_data = PackedInt32Array(1703952, 655361, 5, 1769488, 655361, 6, 170
 layer_4/name = "tapete"
 layer_4/tile_data = PackedInt32Array(1048588, 458753, 1342177289, 1114124, 524289, 1342177289, 1179660, 524289, 1342177289, 1245196, 524289, 1342177289, 1310732, 524289, 1342177289, 1376268, 524289, 1342177289, 1441804, 524289, 1342177289, 1507340, 524289, 1342177289, 1572876, 524289, 1342177289, 1638412, 524289, 1342177289, 1703948, 589825, 1342177289, 1048589, 458753, 1342177288, 1114125, 524289, 1342177288, 1179661, 524289, 1342177288, 1245197, 524289, 1342177288, 1310733, 524289, 1342177288, 1376269, 524289, 1342177288, 1441805, 524289, 1342177288, 1507341, 524289, 1342177288, 1572877, 524289, 1342177288, 1638413, 524289, 1342177288, 1703949, 589825, 1342177288)
 
-[node name="Player" parent="." instance=ExtResource("3_qkv3p")]
-position = Vector2(312, 552)
-scale = Vector2(1, 1)
-metadata/_edit_group_ = true
-
-[node name="Arma" parent="Player" instance=ExtResource("4_h7gn0")]
-initial_arma = "Pistola"
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(3, 3)
-
 [node name="boss_one" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_waoon")]
 position = Vector2(376, 320)
 rotation = -0.0012666
@@ -59,3 +48,19 @@ proxima_cena = "andar_3"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(795.5, 227.5)
 shape = SubResource("RectangleShape2D_0y88y")
+
+[node name="Player" parent="." instance=ExtResource("6_b0ty1")]
+position = Vector2(308, 550)
+scale = Vector2(1, 1)
+collision_layer = 31
+collision_mask = 15
+motion_mode = 1
+platform_floor_layers = 4294967071
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+scale = Vector2(1, 0.993848)
+zoom = Vector2(3, 3)
+
+[node name="Arma" parent="Player" instance=ExtResource("4_h7gn0")]
+initial_arma = "MCHgun"

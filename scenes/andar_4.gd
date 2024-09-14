@@ -11,4 +11,3 @@ func _ready():
 
 func _exit_tree():
 	Global.criacao_no_pai = null
-
