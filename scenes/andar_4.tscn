@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dab5s5wsc1p5h"]
+[gd_scene load_steps=16 format=3 uid="uid://dab5s5wsc1p5h"]
 
 [ext_resource type="TileSet" uid="uid://dupnabqxrmcrf" path="res://andar_1.tres" id="1_acgxl"]
 [ext_resource type="PackedScene" uid="uid://7x8xqmt0e6nb" path="res://HUD/hud.tscn" id="1_k4mb0"]
+[ext_resource type="Script" path="res://scenes/andar_4.gd" id="1_ydnoe"]
 [ext_resource type="PackedScene" uid="uid://i1xtcoqer03r" path="res://Jogador/player.tscn" id="2_py7gh"]
 [ext_resource type="PackedScene" uid="uid://tg4ocn31r3t1" path="res://Arma/Arma.tscn" id="4_sirrk"]
 [ext_resource type="PackedScene" uid="uid://bdoeksfolujqb" path="res://Inimigo/Inimigo.tscn" id="5_ukulj"]
@@ -32,7 +33,7 @@ point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_fdbti"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1000, -8, 0, 0, 0, 0, 1000, -8)
+"points": PackedVector2Array(0, 0, 0, 0, 991.997, -8.37143, 0, 0, 0, 0, 991.997, -8.37143)
 }
 point_count = 2
 
@@ -61,6 +62,7 @@ _data = {
 point_count = 5
 
 [node name="andar_4" type="Node2D"]
+script = ExtResource("1_ydnoe")
 
 [node name="TileMap" type="TileMap" parent="." groups=["tilemap"]]
 tile_set = ExtResource("1_acgxl")
@@ -152,11 +154,13 @@ initial_arma = "Shotgun"
 
 [node name="Path2D5" type="Path2D" parent="."]
 position = Vector2(248, 40)
+rotation = 0.000374429
 curve = SubResource("Curve2D_fdbti")
 metadata/_edit_group_ = true
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D5"]
-position = Vector2(1000.15, -7.94119)
+position = Vector2(991.997, -8.37143)
+rotation = 3.14122
 
 [node name="Inimigo" parent="Path2D5/PathFollow2D" node_paths=PackedStringArray("path2d") instance=ExtResource("5_ukulj")]
 path2d = NodePath("../..")

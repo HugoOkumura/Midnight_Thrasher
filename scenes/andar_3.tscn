@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2u2pms85pdut"]
+[gd_scene load_steps=15 format=3 uid="uid://d2u2pms85pdut"]
 
+[ext_resource type="Script" path="res://scenes/andar_3.gd" id="1_kvpu1"]
 [ext_resource type="TileSet" uid="uid://dupnabqxrmcrf" path="res://andar_1.tres" id="1_wt4gl"]
 [ext_resource type="PackedScene" uid="uid://7x8xqmt0e6nb" path="res://HUD/hud.tscn" id="2_ugsne"]
 [ext_resource type="PackedScene" uid="uid://i1xtcoqer03r" path="res://Jogador/player.tscn" id="3_j3uf4"]
@@ -47,6 +48,7 @@ point_count = 3
 size = Vector2(181, 42)
 
 [node name="Andar3" type="Node2D"]
+script = ExtResource("1_kvpu1")
 
 [node name="TileMap" type="TileMap" parent="." groups=["tilemap"]]
 tile_set = ExtResource("1_wt4gl")
