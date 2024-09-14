@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Arquivos_de_teste/ARENA.gd" id="1_6hfmf"]
 [ext_resource type="PackedScene" uid="uid://bdoeksfolujqb" path="res://Inimigo/Inimigo.tscn" id="2_ft4cb"]
-[ext_resource type="PackedScene" path="res://Arquivos_de_teste/player.tscn" id="3_cx0t4"]
+[ext_resource type="PackedScene" uid="uid://cbla2kogsrsn4" path="res://Arquivos_de_teste/player.tscn" id="3_cx0t4"]
 [ext_resource type="TileSet" uid="uid://dupnabqxrmcrf" path="res://andar_1.tres" id="3_jfe4k"]
 [ext_resource type="PackedScene" uid="uid://tg4ocn31r3t1" path="res://Arma/Arma.tscn" id="4_752r0"]
 [ext_resource type="PackedScene" uid="uid://7x8xqmt0e6nb" path="res://HUD/hud.tscn" id="6_x3bu1"]
@@ -76,7 +76,7 @@ scale = Vector2(1, 0.993848)
 zoom = Vector2(3, 3)
 
 [node name="Arma" parent="Player" instance=ExtResource("4_752r0")]
-initial_arma = "Pistola"
+initial_arma = "MCHgun"
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_jyyci")

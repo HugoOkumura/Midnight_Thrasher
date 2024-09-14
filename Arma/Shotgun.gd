@@ -7,6 +7,7 @@ class_name Shotgun
 @onready var tempo_entre_tiros = $"../tempo entre tiros"
 @onready var arma = $".."
 @onready var shtgn_time = $"shtgn time"
+@onready var shotgun = $"../shotgun"
 
 var bllt := true
 
@@ -36,6 +37,7 @@ func _create_bullet(direction: float) -> void:
 func fire_bullet() -> void:
 	can_shoot = false
 	print("Shotgun: pew")
+	shotgun.play()
 	var direction: float = (forward.global_position - global_position).angle()
 	
 	var offset: float = 0
@@ -56,6 +58,7 @@ func fire_bullet() -> void:
 		tempo_entre_tiros.start()
 
 func _on_tempo_entre_tiros_timeout():
+	shotgun.stop()
 	can_shoot = true
 
 #func _on_shtgn_time_timeout():

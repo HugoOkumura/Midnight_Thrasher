@@ -6,6 +6,7 @@ class_name  Pistola
 @onready var forward = $"../Forward"
 @onready var tempo_entre_tiros = $"../tempo entre tiros"
 @onready var arma = $".."
+@onready var pistola = $"../pistola"
 
 
 func set_arma_params():
@@ -35,6 +36,7 @@ func _create_bullet(direction: float) -> void:
 func fire_bullet() -> void:
 	can_shoot = false
 	print("Pistola: pew")
+	pistola.play()
 	var direction: float = (forward.global_position - global_position).angle()
 	
 	_create_bullet(direction)
@@ -52,6 +54,7 @@ func get_shoot_time() -> float:
 	return shoot_time
 
 func _on_tempo_entre_tiros_timeout():
+	pistola.stop()
 	can_shoot = true
 
 func no_ammo() -> bool:

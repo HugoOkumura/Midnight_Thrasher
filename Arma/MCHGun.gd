@@ -6,6 +6,8 @@ class_name MCHGun
 @onready var forward = $"../Forward"
 @onready var tempo_entre_tiros = $"../tempo entre tiros"
 @onready var arma = $".."
+@onready var mchgun = $"../mchgun"
+
 
 var current_recoil := 0.0
 #var municao := 12
@@ -46,6 +48,7 @@ func _create_bullet(direction: float) -> void:
 func fire_bullet() -> void:
 	can_shoot = false
 	print("MCHGun: pew")
+	mchgun.play()
 	var direction: float = (forward.global_position - global_position).angle()
 	var offset: float = randf_range(-(current_recoil/2), (current_recoil/2))
 	
@@ -68,4 +71,5 @@ func fire_bullet() -> void:
 			tempo_entre_tiros.start()
 
 func _on_tempo_entre_tiros_timeout():
+	mchgun.stop()
 	can_shoot = true

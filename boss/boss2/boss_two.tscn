@@ -269,6 +269,7 @@ rotation = -1.5708
 shape = SubResource("RectangleShape2D_xfich")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -13.0
 offset_top = -29.0
 offset_right = 32.0

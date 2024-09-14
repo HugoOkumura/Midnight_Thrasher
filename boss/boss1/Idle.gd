@@ -6,13 +6,11 @@ class_name IdleState
 var transicao = false
 
 func transition():
-
 	if transicao:
 		get_parent().change_state('Follow')
 
 func enter():
 	super.enter()
-
 	timer_2.start()
 	
 func exit():

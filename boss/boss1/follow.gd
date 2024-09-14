@@ -10,9 +10,8 @@ var player_direcao = Vector2.ZERO
 @onready var arma = $"../../Arma"
 
 func transition():
-	if owner.position.distance_to(aux_direcao) <= 15:
+	if bateu:
 		get_parent().change_state('Idle')
-		punchSound.stop()
 
 
 		
@@ -21,7 +20,6 @@ func enter():
 	
 	player_direcao = owner.player.position 
 	aux_direcao = owner.position
-	punchSound.play(0.0)
 
 func exit():
 	super.exit()
@@ -30,6 +28,7 @@ func exit():
 	bateu = false
 
 func process_state(_delta):
+	print("VVVVVVVVVVVVVVVVVVV")
 	owner.animatedBody.play('Punch')
 	owner.animatedLeg.play('run_leg')
 	
