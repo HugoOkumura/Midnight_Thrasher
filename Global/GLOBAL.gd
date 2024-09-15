@@ -27,8 +27,9 @@ var time = 0
 
 func _process(delta):
 	time += delta
-	if time >= 30:
-		phase_score_multiplier -= 0.05
+	if phase_score_multiplier > 0.10:
+		if time >= 30:
+			phase_score_multiplier -= 0.05
 
 func _instance_node(node, location, parent):
 	var node_instance = node.instantiate()
