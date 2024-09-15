@@ -23,9 +23,10 @@ var dict_animation = {
 
 
 func _ready():
-	await _on_boss_fase_1_player_setted()
-	player = owner.find_child('Player')
-	set_physics_process(true)
+	#await _on_boss_fase_1_player_setted
+	#player = owner.find_child('Player')
+	#set_physics_process(true)
+	boss_fase_1.connect("player_setted", on_player_setted)
 
 func _process(_delta):
 	pass
@@ -59,8 +60,8 @@ func got_hit(dmg:int):
 	if hp <= 0:
 		find_child('FiniteStateMachine').change_state('death') 
 
+func on_player_setted():
+	player = get_tree().get_first_node_in_group("Jogador")
+	set_physics_process(true)
 
 
-
-func _on_boss_fase_1_player_setted():
-	pass # Replace with function body.

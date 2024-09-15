@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var animatedLeg = $SpriteCorpo/Pernas/AnimatedSprite2D
 @onready var sprite_corpo = $SpriteCorpo
 @onready var finite_state_machine = $FiniteStateMachine
+@onready var boss_fase_2 = $".."
 
 var hp = 6
 var direcVector = Vector2(-1.0,0.0)
@@ -16,9 +17,7 @@ var direction = Vector2.RIGHT
 
 
 func _ready():
-	await get_tree().create_timer(0.05).timeout
-	player = owner.find_child('Player')
-	set_physics_process(true)
+	boss_fase_2.connect("player_setted", on_player_setted)
 
 
 
@@ -33,10 +32,6 @@ func got_hit(dmg:int):
 	if hp <= 0:
 		find_child('FiniteStateMachine').change_state('death') 
 
-
-
-#func _on_dano_area_entered(area):
-	#if area.is_in_group("DanoArma"):
-		#hp -= 1
-		#if hp == 0:
-			#find_child('FiniteStateMachine').change_state('death') 
+func on_player_setted():
+	player = get_tree().get_first_node_in_group("Jogador")
+	set_physics_process(true)

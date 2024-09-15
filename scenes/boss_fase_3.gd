@@ -1,6 +1,7 @@
 extends Node
 
 @onready var player:Jogador = $Player
+signal player_setted
 
 func _ready():
 	Global.criacao_no_pai = self
@@ -22,3 +23,4 @@ func set_player():
 		player = SceneManager.player
 		add_child(player)
 		Global.postion_player_to_new_scene(get_tree().get_first_node_in_group("Jogador"), self)
+		emit_signal("player_setted")

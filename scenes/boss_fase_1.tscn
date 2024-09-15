@@ -39,5 +39,3 @@ position = Vector2(280, 640)
 [node name="proxima_fase" parent="." instance=ExtResource("5_xa8kp")]
 position = Vector2(1024, 8)
 proxima_cena = "andar_3"
-
-[connection signal="player_setted" from="." to="boss_one" method="_on_boss_fase_1_player_setted"]
