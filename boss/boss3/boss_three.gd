@@ -16,7 +16,8 @@ var direction = Vector2.RIGHT
 
 
 func _ready():
-
+	await get_tree().create_timer(0.05).timeout
+	player = owner.find_child('Player')
 	set_physics_process(true)
 
 

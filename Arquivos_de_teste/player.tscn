@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://cbla2kogsrsn4"]
+[gd_scene load_steps=60 format=3 uid="uid://yyigptye1seu"]
 
 [ext_resource type="Script" path="res://Arquivos_de_teste/Player.gd" id="1_vdndn"]
 [ext_resource type="Texture2D" uid="uid://k8a7wv1ya7t4" path="res://Arquivos_de_teste/DevGames_parte1/DevGames_parte1/player/player_punch-Sheet.png" id="2_itviq"]

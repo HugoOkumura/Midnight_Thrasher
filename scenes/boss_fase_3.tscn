@@ -1,12 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://v7u1h0yvncjy"]
+[gd_scene load_steps=5 format=3 uid="uid://v7u1h0yvncjy"]
 
 [ext_resource type="TileSet" uid="uid://dupnabqxrmcrf" path="res://andar_1.tres" id="1_b4bun"]
+[ext_resource type="Script" path="res://scenes/boss_fase_3.gd" id="1_tj8pl"]
 [ext_resource type="PackedScene" uid="uid://7x8xqmt0e6nb" path="res://HUD/hud.tscn" id="2_naes7"]
-[ext_resource type="PackedScene" uid="uid://i1xtcoqer03r" path="res://Jogador/player.tscn" id="3_5h8wn"]
-[ext_resource type="PackedScene" uid="uid://tg4ocn31r3t1" path="res://Arma/Arma.tscn" id="4_0gs0j"]
 [ext_resource type="PackedScene" uid="uid://debeetxj55ov8" path="res://boss/boss3/boss_three.tscn" id="5_3hwo8"]
 
 [node name="boss_fase_3" type="Node2D"]
+script = ExtResource("1_tj8pl")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_b4bun")
@@ -26,18 +26,9 @@ layer_4/tile_data = PackedInt32Array(917514, 655361, 5, 983050, 655361, 6, 91751
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("2_naes7")]
 
-[node name="Player" parent="." instance=ExtResource("3_5h8wn")]
-position = Vector2(472, 264)
-scale = Vector2(1, 1)
-metadata/_edit_group_ = true
-
-[node name="Arma" parent="Player" instance=ExtResource("4_0gs0j")]
-initial_arma = "MCHgun"
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(3, 3)
-
-[node name="boss_three" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_3hwo8")]
+[node name="boss_three" parent="." instance=ExtResource("5_3hwo8")]
 position = Vector2(496, 72)
 rotation = 1.54148
-player = NodePath("../Player")
+
+[node name="boss_f3_start" type="Marker2D" parent="."]
+position = Vector2(480, 576)

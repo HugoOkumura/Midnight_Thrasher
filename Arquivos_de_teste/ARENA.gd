@@ -1,6 +1,6 @@
 extends Node
 
-@onready var camera = $Player/Camera
+@onready var player:Jogador = $Player
 
 func _ready():
 	Global.criacao_no_pai = self
