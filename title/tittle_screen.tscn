@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbfach6vd86x"]
+[gd_scene load_steps=6 format=3 uid="uid://dbfach6vd86x"]
 
 [ext_resource type="Script" path="res://title/tittle_screen.gd" id="1_6r2gw"]
 [ext_resource type="Texture2D" uid="uid://cgpfdlqld2cvm" path="res://title/title_init1.png" id="2_0h63f"]
 [ext_resource type="Theme" uid="uid://clewuq8bf48c6" path="res://title/newbutton.tres" id="2_yhxnv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a12dw"]
+font_size = 21
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4wyw4"]
 
@@ -22,6 +25,18 @@ offset_bottom = 270.0
 size_flags_horizontal = 4
 texture = ExtResource("2_0h63f")
 expand_mode = 2
+
+[node name="score" type="Label" parent="."]
+visible = false
+offset_left = 150.0
+offset_top = 134.0
+offset_right = 451.0
+offset_bottom = 209.0
+scale = Vector2(0.561153, 0.737053)
+text = "PONTOS: 0"
+label_settings = SubResource("LabelSettings_a12dw")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -63,9 +78,9 @@ theme = ExtResource("2_yhxnv")
 text = "EXIT
 "
 
-[node name="Camera2D" type="Camera2D" parent="MarginContainer"]
-position = Vector2(89.1101, -18.9038)
-zoom = Vector2(2.5, 2.5)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(236, 137)
+zoom = Vector2(2.8, 2.8)
 
 [connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_button"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]

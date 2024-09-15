@@ -24,7 +24,7 @@ var _direction: Vector2 = Vector2.ZERO
 var _screen_size: Vector2
 #var bullet = preload("res://Arma/Bullet.tscn")
 #var recarregado = true
-var hp = 200
+var hp = 2
 
 var morto = false
 var hud : HUD

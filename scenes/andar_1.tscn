@@ -196,7 +196,7 @@ scale = Vector2(1, 0.993848)
 zoom = Vector2(3, 3)
 
 [node name="Arma" parent="Player" instance=ExtResource("4_752r0")]
-initial_arma = "MCHgun"
+initial_arma = "Faca"
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(232, 56)
@@ -258,14 +258,14 @@ position = Vector2(992, 40)
 proxima_cena = "CutSceneBoss1"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(996, 869)
+position = Vector2(990, 997)
 scale = Vector2(1.40529, 1.50758)
 sprite_frames = SubResource("SpriteFrames_cabh1")
 autoplay = "default"
 frame_progress = 0.238782
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(677, 869)
+position = Vector2(679, 998)
 scale = Vector2(1.32529, 1.50758)
 sprite_frames = SubResource("SpriteFrames_41hmq")
 animation = &"1"

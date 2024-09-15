@@ -1,8 +1,12 @@
 extends Control
 
+@onready var score = $score
+
 
 # Called when the node enters the scene tree for the first time.
 
+func _ready():
+	score.text = "PONTOS:%d " % Global.score_total
 
 func _on_exit_pressed():
 	get_tree().quit()

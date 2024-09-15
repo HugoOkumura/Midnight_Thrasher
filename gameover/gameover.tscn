@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://h8tur5suktti"]
+[gd_scene load_steps=6 format=3 uid="uid://h8tur5suktti"]
 
 [ext_resource type="Script" path="res://title/tittle_screen.gd" id="1_0itcn"]
 [ext_resource type="Texture2D" uid="uid://blvbqcp4rs5m7" path="res://gameover/title_gameOver2.png" id="2_x84tr"]
 [ext_resource type="Theme" uid="uid://clewuq8bf48c6" path="res://title/newbutton.tres" id="3_bm0p2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_378mm"]
+font_size = 21
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4wyw4"]
 
@@ -23,15 +26,26 @@ size_flags_horizontal = 4
 texture = ExtResource("2_x84tr")
 expand_mode = 2
 
+[node name="score" type="Label" parent="."]
+offset_left = 150.0
+offset_top = 126.0
+offset_right = 451.0
+offset_bottom = 201.0
+scale = Vector2(0.561153, 0.737053)
+text = "PONTOS: 0"
+label_settings = SubResource("LabelSettings_378mm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -415.0
-offset_top = 139.0
-offset_right = -245.0
-offset_bottom = 249.0
+offset_left = -417.0
+offset_top = 156.0
+offset_right = -247.0
+offset_bottom = 266.0
 grow_horizontal = 2
 scale = Vector2(0.930538, 1.00509)
 theme_override_constants/margin_top = 20
@@ -62,9 +76,10 @@ layout_mode = 2
 theme = ExtResource("3_bm0p2")
 text = "HOME SCREEN"
 
-[node name="Camera2D" type="Camera2D" parent="MarginContainer"]
-position = Vector2(82.7478, -4.97469)
-zoom = Vector2(2.5, 2.5)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(233, 146)
+scale = Vector2(0.561153, 0.737053)
+zoom = Vector2(3, 3)
 
 [connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_button"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]

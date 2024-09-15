@@ -1,8 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bs64m6ovaaws0"]
+[gd_scene load_steps=8 format=3 uid="uid://bs64m6ovaaws0"]
 
 [ext_resource type="Script" path="res://title/tittle_screen.gd" id="1_7p1hw"]
 [ext_resource type="Texture2D" uid="uid://d10bf52lxwkq8" path="res://endgame/endGame1.png" id="2_mok7w"]
 [ext_resource type="Theme" uid="uid://clewuq8bf48c6" path="res://title/newbutton.tres" id="3_do8un"]
+[ext_resource type="Texture2D" uid="uid://b2t2ylvdqf7py" path="res://endgame/logoutfpr.png" id="3_uqkn5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sg0r3"]
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_4moew"]
+font_size = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4wyw4"]
 
@@ -23,15 +30,51 @@ size_flags_horizontal = 4
 texture = ExtResource("2_mok7w")
 expand_mode = 2
 
+[node name="Bg2" type="TextureRect" parent="."]
+offset_left = 346.0
+offset_top = 208.0
+offset_right = 826.0
+offset_bottom = 478.0
+scale = Vector2(0.24, 0.2)
+size_flags_horizontal = 4
+texture = ExtResource("3_uqkn5")
+expand_mode = 2
+
+[node name="score" type="Label" parent="."]
+offset_left = 150.0
+offset_top = 134.0
+offset_right = 451.0
+offset_bottom = 209.0
+scale = Vector2(0.561153, 0.737053)
+text = "PONTOS: 0"
+label_settings = SubResource("LabelSettings_sg0r3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 217.0
+offset_right = 311.0
+offset_bottom = 292.0
+scale = Vector2(0.561153, 0.737053)
+text = "DESENVOLVEDORES: Caio Rangel, Hugo Okumura e José Renan
+ARTE \\ ANIMAÇÃO: José Renan
+EFEITOS SONOROS: PixelBay
+MUSICAS: 
+"
+label_settings = SubResource("LabelSettings_4moew")
+vertical_alignment = 1
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -419.0
-offset_top = 144.0
-offset_right = -249.0
-offset_bottom = 254.0
+offset_left = -418.0
+offset_top = 165.0
+offset_right = -248.0
+offset_bottom = 275.0
 grow_horizontal = 2
 scale = Vector2(0.930538, 1.00509)
 theme_override_constants/margin_top = 20
@@ -63,8 +106,8 @@ theme = ExtResource("3_do8un")
 text = "EXIT"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(238, 137)
-zoom = Vector2(2.5, 2.5)
+position = Vector2(237, 149)
+zoom = Vector2(2.5, 3)
 
 [connection signal="button_up" from="MarginContainer/HBoxContainer/VBoxContainer/Home" to="." method="_on_home_button"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Home" to="." method="_on_home_pressed"]
