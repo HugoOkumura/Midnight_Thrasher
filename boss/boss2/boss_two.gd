@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var finite_state_machine = $FiniteStateMachine
 @onready var boss_fase_2 = $".."
 
-var hp = 6
+var hp = 12
 var direcVector = Vector2(-1.0,0.0)
 var direcao = Vector2(0,0)
 var _direction: Vector2 = Vector2.ZERO

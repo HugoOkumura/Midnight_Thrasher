@@ -6,7 +6,7 @@ func _ready():
 	Global.criacao_no_pai = self
 	Global.enemy = 4
 	Global.kill_combo = 1
-	Global.time = 0
+	Global.time = 02
 	GlobalT.stop()
 	Global.score_phase = 0
 	Global.score_total = 0

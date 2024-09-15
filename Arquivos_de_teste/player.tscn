@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=60 format=3 uid="uid://yyigptye1seu"]
-
+[gd_scene load_steps=98 format=3 uid="uid://yyigptye1seu"]
 
 [ext_resource type="Script" path="res://Arquivos_de_teste/Player.gd" id="1_vdndn"]
 [ext_resource type="Texture2D" uid="uid://bpccyn7y6ohug" path="res://sprites/Personagem/spriteShitPlayer.png" id="2_ddcpo"]
@@ -697,7 +695,7 @@ script = ExtResource("1_vdndn")
 position = Vector2(9.53674e-07, 0)
 rotation = 4.71239
 sprite_frames = SubResource("SpriteFrames_d86l8")
-animation = &"SHOOTGUN_RUN"
+animation = &"PUNCH_RUN"
 autoplay = "STOPED"
 
 [node name="tempo de recarga" type="Timer" parent="."]

@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddk2utxl3eokm"]
+
+[ext_resource type="Script" path="res://Inimigo/drop.gd" id="1_homfx"]
+[ext_resource type="Texture2D" uid="uid://dlbhio44uta1v" path="res://sprites/novas/Sprite_Pistola.png" id="2_v67f6"]
+[ext_resource type="Texture2D" uid="uid://bexo85887upvp" path="res://sprites/novas/Sprite-MachineGun.png" id="3_e57rh"]
+[ext_resource type="Texture2D" uid="uid://e7uv3fwsjqtf" path="res://sprites/novas/Sprite-ShotGun.png" id="4_ye7o5"]
+[ext_resource type="Texture2D" uid="uid://ojqlhnyjvqtu" path="res://sprites/novas/colete.png" id="5_ofhwf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r7uuo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ofhwf")
+}],
+"loop": true,
+"name": &"Colete",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_e57rh")
+}],
+"loop": true,
+"name": &"MCHGun",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v67f6")
+}],
+"loop": true,
+"name": &"Pistola",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ye7o5")
+}],
+"loop": true,
+"name": &"Shotgun",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xri80"]
+size = Vector2(28, 21)
+
+[node name="drop" type="Node2D"]
+script = ExtResource("1_homfx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r7uuo")
+animation = &"MCHGun"
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" groups=["Jogador"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_xri80")
+
+[connection signal="area_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

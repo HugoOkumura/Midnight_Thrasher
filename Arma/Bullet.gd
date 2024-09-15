@@ -16,7 +16,8 @@ func _process(delta):
 	global_position += (_velocity * delta).rotated(rotation)
 	
 
-func _on_body_entered(body:CharacterBody2D):
+func _on_body_entered(body):
+
 	if body == null || shooter == null:
 		return
 	if body is Jogador and shooter.is_in_group("Inimigo"):
@@ -24,4 +25,12 @@ func _on_body_entered(body:CharacterBody2D):
 		queue_free()
 	if body.is_in_group("Inimigo") and shooter is Jogador:
 		body.got_hit(2)
+		queue_free()	
+	if body is TileMap:
 		queue_free()
+
+func _on_area_entered(area):
+	if area is TileMap:
+		pass
+			
+			

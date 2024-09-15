@@ -20,6 +20,7 @@ func enter():
 	sprite_morto.visible = true
 	deathSound.play(0.0)
 	collision_shape_2d.queue_free()
+	
 
 func exit():
 	super.exit()

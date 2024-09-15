@@ -4,7 +4,6 @@
 [ext_resource type="TileSet" uid="uid://dupnabqxrmcrf" path="res://andar_1.tres" id="1_wt4gl"]
 [ext_resource type="PackedScene" uid="uid://7x8xqmt0e6nb" path="res://HUD/hud.tscn" id="2_ugsne"]
 [ext_resource type="PackedScene" uid="uid://tg4ocn31r3t1" path="res://Arma/Arma.tscn" id="4_hjn30"]
-[ext_resource type="PackedScene" uid="uid://cbla2kogsrsn4" path="res://Arquivos_de_teste/player.tscn" id="4_qav1i"]
 [ext_resource type="PackedScene" uid="uid://bdoeksfolujqb" path="res://Inimigo/Inimigo.tscn" id="5_bsls0"]
 [ext_resource type="PackedScene" uid="uid://cpjbp3unyk2co" path="res://scenes/proxima_fase.tscn" id="6_jso1k"]
 
@@ -65,7 +64,6 @@ layer_4/tile_data = PackedInt32Array(458762, 655361, 5, 524298, 655361, 6, 45876
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("2_ugsne")]
 
-
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-24, 8)
 curve = SubResource("Curve2D_3b5vr")
@@ -75,9 +73,8 @@ metadata/_edit_group_ = true
 position = Vector2(888, 720)
 rotation = 1.5708
 
-[node name="Inimigo" parent="Path2D/PathFollow2D" node_paths=PackedStringArray("path2d", "nav_target") instance=ExtResource("5_bsls0")]
+[node name="Inimigo" parent="Path2D/PathFollow2D" node_paths=PackedStringArray("path2d") instance=ExtResource("5_bsls0")]
 path2d = NodePath("../..")
-nav_target = NodePath("../../../Player")
 
 [node name="Arma" parent="Path2D/PathFollow2D/Inimigo" instance=ExtResource("4_hjn30")]
 initial_arma = "Shotgun"
@@ -89,9 +86,8 @@ metadata/_edit_group_ = true
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
 position = Vector2(328, 400)
 
-[node name="Inimigo" parent="Path2D2/PathFollow2D" node_paths=PackedStringArray("path2d", "nav_target") instance=ExtResource("5_bsls0")]
+[node name="Inimigo" parent="Path2D2/PathFollow2D" node_paths=PackedStringArray("path2d") instance=ExtResource("5_bsls0")]
 path2d = NodePath("../..")
-nav_target = NodePath("../../../Player")
 
 [node name="Arma" parent="Path2D2/PathFollow2D/Inimigo" instance=ExtResource("4_hjn30")]
 initial_arma = "Pistola"
@@ -104,9 +100,8 @@ metadata/_edit_group_ = true
 position = Vector2(304, 504)
 rotation = 1.5708
 
-[node name="Inimigo" parent="Path2D3/PathFollow2D" node_paths=PackedStringArray("path2d", "nav_target") instance=ExtResource("5_bsls0")]
+[node name="Inimigo" parent="Path2D3/PathFollow2D" node_paths=PackedStringArray("path2d") instance=ExtResource("5_bsls0")]
 path2d = NodePath("../..")
-nav_target = NodePath("../../../Player")
 
 [node name="Arma" parent="Path2D3/PathFollow2D/Inimigo" instance=ExtResource("4_hjn30")]
 initial_arma = "Shotgun"
@@ -119,9 +114,8 @@ metadata/_edit_group_ = true
 position = Vector2(464, 32)
 rotation = 1.5708
 
-[node name="Inimigo" parent="Path2D4/PathFollow2D" node_paths=PackedStringArray("path2d", "nav_target") instance=ExtResource("5_bsls0")]
+[node name="Inimigo" parent="Path2D4/PathFollow2D" node_paths=PackedStringArray("path2d") instance=ExtResource("5_bsls0")]
 path2d = NodePath("../..")
-nav_target = NodePath("../../../Player")
 
 [node name="Arma" parent="Path2D4/PathFollow2D/Inimigo" instance=ExtResource("4_hjn30")]
 initial_arma = "Faca"
@@ -134,9 +128,8 @@ metadata/_edit_group_ = true
 position = Vector2(912, 192)
 rotation = -1.5708
 
-[node name="Inimigo" parent="Path2D5/PathFollow2D" node_paths=PackedStringArray("path2d", "nav_target") instance=ExtResource("5_bsls0")]
+[node name="Inimigo" parent="Path2D5/PathFollow2D" node_paths=PackedStringArray("path2d") instance=ExtResource("5_bsls0")]
 path2d = NodePath("../..")
-nav_target = NodePath("../../../Player")
 
 [node name="Arma" parent="Path2D5/PathFollow2D/Inimigo" instance=ExtResource("4_hjn30")]
 initial_arma = "Pistola"
@@ -149,9 +142,8 @@ metadata/_edit_group_ = true
 position = Vector2(952, -32)
 rotation = 3.14159
 
-[node name="Inimigo" parent="Path2D6/PathFollow2D" node_paths=PackedStringArray("path2d", "nav_target") instance=ExtResource("5_bsls0")]
+[node name="Inimigo" parent="Path2D6/PathFollow2D" node_paths=PackedStringArray("path2d") instance=ExtResource("5_bsls0")]
 path2d = NodePath("../..")
-nav_target = NodePath("../../../Player")
 
 [node name="Arma" parent="Path2D6/PathFollow2D/Inimigo" instance=ExtResource("4_hjn30")]
 initial_arma = "Faca"
@@ -161,4 +153,4 @@ position = Vector2(608, 928)
 
 [node name="proxima_fase" parent="." instance=ExtResource("6_jso1k")]
 position = Vector2(512, -152)
-proxima_cena = "boss_fase_2"
+proxima_cena = "CutSceneBoss2"

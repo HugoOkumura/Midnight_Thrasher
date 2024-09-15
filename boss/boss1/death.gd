@@ -22,6 +22,7 @@ func enter():
 	sprite_morto.visible = true
 	deathSound.play(0.0)
 	Global.reduce_enemy_count()
+	
 
 func exit():
 	super.exit()

@@ -31,7 +31,7 @@ func set_arma_params():
 	bullets_per_shot = 1
 	aperture_angle = deg_to_rad(30)
 	damage = 2
-	municao = 12
+	municao = 200
 	can_shoot = true
 	combo_time = 1
 	tempo_entre_tiros.setup()

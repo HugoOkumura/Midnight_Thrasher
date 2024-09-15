@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci8bbfehpmxe2"]
+
+[ext_resource type="PackedScene" uid="uid://dxmt4cycycamg" path="res://boss/cut_scene.tscn" id="1_3d7xa"]
+[ext_resource type="Texture2D" uid="uid://3vm6f002v3vq" path="res://boss/boss1/Boss1_cut.png" id="2_7jxbe"]
+[ext_resource type="Texture2D" uid="uid://86118vj1jrm1" path="res://boss/boss1/nameBoss1.png" id="3_dhgax"]
+[ext_resource type="PackedScene" uid="uid://bruw0ffpyry8y" path="res://scenes/boss_fase_1.tscn" id="4_34dl2"]
+
+[node name="CutSceneBoss1" type="Node2D"]
+
+[node name="CutScene" parent="." instance=ExtResource("1_3d7xa")]
+boss_texture = ExtResource("2_7jxbe")
+name_texture = ExtResource("3_dhgax")
+SceneNext = ExtResource("4_34dl2")

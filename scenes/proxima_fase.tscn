@@ -1,15 +1,67 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpjbp3unyk2co"]
+[gd_scene load_steps=8 format=3 uid="uid://cpjbp3unyk2co"]
 
 [ext_resource type="Script" path="res://scenes/proxima_fase.gd" id="1_8tblm"]
+[ext_resource type="Texture2D" uid="uid://cpntumv7t6ea" path="res://sprites/setas.png" id="2_yxcb1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bq0jv"]
 size = Vector2(193.5, 25.5)
 
-[node name="proxima_fase" type="Area2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mr7i"]
+atlas = ExtResource("2_yxcb1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orml8"]
+atlas = ExtResource("2_yxcb1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wxlg"]
+atlas = ExtResource("2_yxcb1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e42wd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mr7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orml8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wxlg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="proxima_fase" type="Area2D" groups=["proximafase"]]
 script = ExtResource("1_8tblm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(95.25, 11.25)
 shape = SubResource("RectangleShape2D_bq0jv")
+
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+position = Vector2(95, 93)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(1, -6)
+sprite_frames = SubResource("SpriteFrames_e42wd")
+autoplay = "default"
+frame_progress = 0.286202
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(24, 8)
+sprite_frames = SubResource("SpriteFrames_e42wd")
+autoplay = "default"
+frame_progress = 0.0665391
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(-20, 10)
+sprite_frames = SubResource("SpriteFrames_e42wd")
+autoplay = "default"
+frame_progress = 0.0469877
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -5,6 +5,19 @@ var criacao_no_pai = null
 var enemy :int
 var kill_combo = 1
 var phase_clear := false
+var colete = false
+
+var arma_principal
+var faca_equipada = false
+#var sem_municao = false 
+var trocando_arma = false
+var municao = 0
+var hp = 2
+var arma: int
+
+
+
+
 
 var score_total :int = 0
 var score_phase : int = 0
@@ -38,6 +51,10 @@ func reduce_enemy_count():
 	enemy -= 1
 	add_to_score()
 	if enemy == 0:
+		
+		var proximafase = get_tree().get_first_node_in_group('proximafase')
+		var seta = proximafase.get_child(1)
+		seta.visible = true
 		phase_clear = true
 
 func add_to_score():
@@ -58,3 +75,13 @@ func postion_player_to_new_scene(player:Jogador, scene):
 		if start is Marker2D:
 			player.global_position = start.global_position
 			player.change_HUD()
+
+
+func palavra_para_inteiro(palavra: String) -> int:
+	var mapeamento = {
+		"Pistola": 0,
+		"MCHGun": 1,
+		"MCHgun": 1,
+		"Shotgun": 2
+	}
+	return mapeamento.get(palavra, -1)

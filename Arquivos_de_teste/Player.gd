@@ -24,8 +24,8 @@ var _direction: Vector2 = Vector2.ZERO
 var _screen_size: Vector2
 #var bullet = preload("res://Arma/Bullet.tscn")
 #var recarregado = true
-var hp = 2
-var colete = false
+var hp = 200
+
 var morto = false
 var hud : HUD
 
@@ -40,7 +40,6 @@ func _ready() -> void:
 	z_index = 2
 
 func _process(_delta: float) -> void:
-
 	if Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_up") || Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_down"):
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			#_animated_sprite.play("PUNCH_RUN")
@@ -110,8 +109,8 @@ func _aim_burster():
 	_pl.look_at(get_global_mouse_position())
 
 func got_hit(dmg:int):
-	if colete:
-		colete = false
+	if Global.colete:
+		Global.colete = false
 		hp -= 2
 	else:
 		hp -= dmg
