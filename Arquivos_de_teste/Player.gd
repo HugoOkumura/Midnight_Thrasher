@@ -79,6 +79,7 @@ func _process(_delta: float) -> void:
 	
 	if hp <= 0:
 		morte.play()
+		Playlist.sem_musica()
 		get_tree().change_scene_to_file("res://gameover/gameover.tscn")
 	
 

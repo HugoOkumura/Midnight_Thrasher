@@ -11,6 +11,7 @@ func _ready():
 	GlobalT.stop()
 	Global.phase_clear = false
 	set_player()
+	Playlist.boss()
 
 func _exit_tree():
 	Global.criacao_no_pai = null

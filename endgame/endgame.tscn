@@ -31,6 +31,7 @@ texture = ExtResource("2_mok7w")
 expand_mode = 2
 
 [node name="Bg2" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 346.0
 offset_top = 208.0
 offset_right = 826.0
@@ -41,6 +42,7 @@ texture = ExtResource("3_uqkn5")
 expand_mode = 2
 
 [node name="score" type="Label" parent="."]
+layout_mode = 0
 offset_left = 150.0
 offset_top = 134.0
 offset_right = 451.0
@@ -53,15 +55,18 @@ vertical_alignment = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 206.0
-offset_right = 309.0
-offset_bottom = 281.0
+offset_left = 10.0
+offset_top = 181.0
+offset_right = 311.0
+offset_bottom = 297.0
 scale = Vector2(0.561153, 0.737053)
 text = "DESENVOLVEDORES: Caio Rangel, Hugo Okumura e José Renan
 ARTE \\ ANIMAÇÃO: José Renan
 EFEITOS SONOROS: PixelBay
-MUSICAS: 
+MUSICAS: Music: Bensound.com/free-music-for-videos
+License code: VUKBZKI7Y8VNCNBG
+Music: https://www.bensound.com/
+License code: NCKFUTRFMMMPMUCE
 "
 label_settings = SubResource("LabelSettings_4moew")
 vertical_alignment = 1

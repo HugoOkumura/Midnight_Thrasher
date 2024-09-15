@@ -28,6 +28,7 @@ expand_mode = 2
 
 [node name="score" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 150.0
 offset_top = 134.0
 offset_right = 451.0

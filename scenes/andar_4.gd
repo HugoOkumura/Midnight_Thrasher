@@ -4,12 +4,13 @@ extends Node
 
 func _ready():
 	Global.criacao_no_pai = self
-	Global.enemy = 1
+	Global.enemy = 10
 	Global.kill_combo = 1
 	Global.time = 0
 	GlobalT.stop()
 	Global.phase_clear = false
 	set_player()
+	Playlist.normal()
 	
 func _exit_tree():
 	Global.criacao_no_pai = null

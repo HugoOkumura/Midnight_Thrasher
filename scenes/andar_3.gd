@@ -4,12 +4,13 @@ extends Node2D
 
 func _ready():
 	Global.criacao_no_pai = self
-	Global.enemy = 4
+	Global.enemy = 6
 	Global.kill_combo = 1
 	Global.time = 0
 	GlobalT.stop()
 	Global.phase_clear = false
 	set_player()
+	Playlist.normal()
 
 func _exit_tree():
 	Global.criacao_no_pai = null

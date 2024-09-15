@@ -20,6 +20,9 @@ func enter():
 	sprite_morto.visible = true
 	deathSound.play(0.0)
 	collision_shape_2d.queue_free()
+	Playlist.sem_musica()
+	get_tree().change_scene_to_file("res://endgame/endgame.tscn")
+
 	
 
 func exit():

@@ -11,6 +11,7 @@ func _ready():
 	Global.score_phase = 0
 	Global.score_total = 0
 	Global.phase_clear = false
+	Playlist.normal()
 
 func _exit_tree():
 	Global.criacao_no_pai = null

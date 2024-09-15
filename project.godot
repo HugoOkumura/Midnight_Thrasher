@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Global="*res://Global/GLOBAL.gd"
 GlobalT="*res://Global/GLOBAL_TIMER.gd"
 SceneManager="*res://Global/SceneManager.gd"
+Playlist="*res://playlist/playlist.tscn"
 
 [debug]
 
