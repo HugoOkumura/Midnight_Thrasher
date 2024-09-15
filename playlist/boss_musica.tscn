@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp6aq7d4p286s"]
+
+[ext_resource type="AudioStream" uid="uid://c1i3ny3rjdg2n" path="res://playlist/boss.mp3" id="1_ufrrj"]
+
+[node name="BossMusica" type="AudioStreamPlayer"]
+stream = ExtResource("1_ufrrj")

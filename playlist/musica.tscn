@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm3xnfqhilfrg"]
+
+[ext_resource type="AudioStream" uid="uid://c5g1dmpmk74lf" path="res://playlist/normal.mp3" id="1_dfbia"]
+
+[node name="Musica" type="AudioStreamPlayer"]
+stream = ExtResource("1_dfbia")
+volume_db = -10.0
+autoplay = true

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg4dmwyfpuqc0"]
+
+[ext_resource type="AudioStream" uid="uid://c5g1dmpmk74lf" path="res://playlist/normal.mp3" id="1_ghitd"]
+[ext_resource type="Script" path="res://playlist/playlist.gd" id="1_n16q1"]
+[ext_resource type="AudioStream" uid="uid://c1i3ny3rjdg2n" path="res://playlist/boss.mp3" id="2_qwrl7"]
+
+[node name="Playlist" type="Node2D"]
+script = ExtResource("1_n16q1")
+
+[node name="normal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_ghitd")
+volume_db = -10.0
+autoplay = true
+
+[node name="boss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qwrl7")
+volume_db = -5.0
