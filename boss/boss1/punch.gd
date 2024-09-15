@@ -13,7 +13,6 @@ func transition():
 		
 func enter():
 	super.enter()
-	print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 
 func exit():
 	super.exit()

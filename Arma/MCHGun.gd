@@ -1,11 +1,13 @@
 extends Arma
-class_name  MCHGun
+class_name MCHGun
 
 @onready var projectile = load("res://Arma/Bullet.tscn")
 @onready var bullet_point = $"../Bullet Point"
 @onready var forward = $"../Forward"
 @onready var tempo_entre_tiros = $"../tempo entre tiros"
 @onready var arma = $".."
+@onready var mchgun = $"../mchgun"
+
 
 var current_recoil := 0.0
 #var municao := 12
@@ -39,6 +41,7 @@ func set_arma_params():
 	else:
 		municao = 12
 	can_shoot = true
+	combo_time = 1
 	tempo_entre_tiros.setup()
 
 func _create_bullet(direction: float) -> void:
@@ -53,6 +56,7 @@ func _create_bullet(direction: float) -> void:
 func fire_bullet() -> void:
 	can_shoot = false
 	print("MCHGun: pew")
+	mchgun.play()
 	var direction: float = (forward.global_position - global_position).angle()
 	var offset: float = randf_range(-(current_recoil/2), (current_recoil/2))
 	
@@ -78,4 +82,5 @@ func fire_bullet() -> void:
 			tempo_entre_tiros.start()
 
 func _on_tempo_entre_tiros_timeout():
+	mchgun.stop()
 	can_shoot = true

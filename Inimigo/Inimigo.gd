@@ -6,9 +6,12 @@ class_name Inimigo
 @onready var statesm = $"State Machine" as StateMachine
 @onready var arma_inimigo = $"../../Arma"
 
+@export var path2d : Path2D
 @export var rotation_speed = 2
 @export var walk_speed = 150
 @export var nav_target : Jogador = null
+@onready var morte = $morte
+
 
 var distance: float
 var current_speed
@@ -45,7 +48,7 @@ func got_hit(dmg: int):
 	print(hp)
 	if hp == 0:
 		statesm.current_state.Transitioned.emit(statesm.current_state, "InimigoMorte", null)
-		
+		morte.play()
 	
 
 func is_target_null() -> bool: 

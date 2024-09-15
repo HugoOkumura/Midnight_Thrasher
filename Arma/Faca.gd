@@ -6,6 +6,9 @@ class_name Faca
 @onready var forward = $"../Forward"
 @onready var tempo_entre_tiros = $"../tempo entre tiros"
 @onready var arma = $".."
+@onready var facada = $"../Facada"
+
+
 
 func set_arma_params():
 	shoot_time = 0.5
@@ -14,6 +17,7 @@ func set_arma_params():
 	aperture_angle = 0
 	damage = 1
 	can_shoot = true
+	combo_time = 6
 	tempo_entre_tiros.setup()
 
 func _create_bullet(direction: float) -> void:
@@ -27,6 +31,7 @@ func _create_bullet(direction: float) -> void:
 func fire_bullet() -> void:
 	can_shoot = false
 	print("Faca: swing")
+	facada.play()
 	var direction: float = (forward.global_position - global_position).angle()
 	direction -= aperture_angle/2
 	_create_bullet(direction)
@@ -34,4 +39,5 @@ func fire_bullet() -> void:
 	tempo_entre_tiros.start()
 
 func _on_tempo_entre_tiros_timeout():
+	facada.stop()
 	can_shoot = true

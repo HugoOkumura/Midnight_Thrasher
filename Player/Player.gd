@@ -12,6 +12,7 @@ const CROSSHAIR = preload("res://Player/character_crosshair.png")
 	"right": "ui_right",
 	"up":    "ui_up", 
 	"down":  "ui_down"}
+
 @onready var arma_player = $Arma
 
 var can_shoot := true
@@ -27,10 +28,14 @@ var arma3 = "Shotgun"
 var hp = 2
 var colete = false
 var morto = false
+var hud : HUD
 
 signal hit
 
 func _ready() -> void:
+	hud = get_tree().get_first_node_in_group("HUD")
+	await get_tree().create_timer(0.01).timeout
+	hud.vida.update_health(hp)
 	_screen_size = get_viewport_rect().size
 	Input.set_custom_mouse_cursor(CROSSHAIR)
 	z_index = 2
@@ -50,7 +55,6 @@ func _process(_delta: float) -> void:
 					_animated_sprite.play("SHOOT_RUN_"+"Shotgun")
 		else:
 			_animated_sprite.play("RUN")
-
 	else:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			if Global.faca_equipada:
@@ -67,7 +71,6 @@ func _process(_delta: float) -> void:
 					print("Cheguei aqui")
 		else:
 			_animated_sprite.play("STOPED")
-			
 	_move_in_any_direction(_delta)
 	_aim_burster()
 	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Global.criacao_no_pai != null and recarregado:
@@ -93,8 +96,9 @@ func _process(_delta: float) -> void:
 			#weapon_nearby = null
 			#print("Weapon picked up!")
 	if hp <= 0:
+		morte.play()
 		get_tree().change_scene_to_file("res://gameover/gameover.tscn")
-		
+	
 
 
 func _move_in_any_direction(_delta: float) -> void:
@@ -108,13 +112,13 @@ func _move_and_rotate(delta: float) -> void:
 	
 	velocity = _input * SPEED
 	move_and_slide()
-	_clamp_screen()
+	#_clamp_screen()
 
 
-func _clamp_screen() -> void:
-	position.x = clamp(position.x, 0, _screen_size.x)
-	position.y = clamp(position.y, 0, _screen_size.y)
-
+#func _clamp_screen() -> void:
+	#position.x = clamp(position.x, 0, _screen_size.x)
+	#position.y = clamp(position.y, 0, _screen_size.y)
+#
 func _wrap_screen() -> void:
 	position.x = wrap(position.x, 0, _screen_size.x)
 	position.y = wrap(position.y, 0, _screen_size.y)

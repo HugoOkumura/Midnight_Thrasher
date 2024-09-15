@@ -11,7 +11,6 @@ func transition():
 
 func enter():
 	super.enter()
-
 	timer_2.start()
 	
 func exit():
@@ -19,14 +18,11 @@ func exit():
 	transicao = false
 	timer_2.stop()	
 	
-	
-
 func process_state(_delta):
 	owner.animatedBody.play('run')
 	owner.animatedLeg.play('run_leg')
 	if owner.position.x < 200:
 		owner.direcVector = Vector2(1.0,0.0)
-		
 	elif owner.position.x >  800:
 		owner.direcVector =Vector2(-1.0,0.0)
 		
@@ -40,11 +36,6 @@ func process_state(_delta):
 	# Defina a rotação do owner para esse ângulo
 	owner.rotation = angulo - PI / 2 # Ajuste de 90 graus
 	owner.move_and_slide()
-
-	
-	
-	
-
 
 func _on_timer_2_timeout():
 	transicao = true
