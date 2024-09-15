@@ -12,13 +12,13 @@ var ammo
 
 func change_arma(new_arma : String):
 	var current_arma = get_child(0)
-	if new_arma == "MCHgun":
+	if new_arma == "mchgun":
 		current_arma.texture = mhcgun
 		ammo = 12
-	elif new_arma == "Pistola":
+	elif new_arma == "pistola":
 		current_arma.texture = pistola
 		ammo = 7
-	elif new_arma == "Shotgun":
+	elif new_arma == "shotgun":
 		current_arma.texture = shotgun
 		ammo = 2
 	else:

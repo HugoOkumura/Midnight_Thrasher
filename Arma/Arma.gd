@@ -27,7 +27,7 @@ func _ready():
 		current_arma.set_arma_params()
 		if shooter is Jogador:
 			await get_tree().create_timer(0.01).timeout
-			shooter.hud.municao.change_arma(initial_arma)
+			shooter.hud.municao.change_arma(initial_arma.to_lower())
 
 
 func set_arma_params():
@@ -51,7 +51,7 @@ func change_arma(new_arma_name:String):
 	if !new:
 		return
 	if shooter is Jogador:
-		shooter.hud.municao.change_arma(new_arma_name)
+		shooter.hud.municao.change_arma(new_arma_name.to_lower())
 	await change_time.timeout
 	current_arma = new
 	current_arma.set_arma_params()

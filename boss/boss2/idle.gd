@@ -21,8 +21,6 @@ func exit():
 	transicao = false
 	fireTime.stop()	
 
-	
-	
 
 func process_state(_delta):
 	owner.animatedBody.play('Run')

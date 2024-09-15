@@ -24,7 +24,7 @@ var _direction: Vector2 = Vector2.ZERO
 var _screen_size: Vector2
 #var bullet = preload("res://Arma/Bullet.tscn")
 #var recarregado = true
-var hp = 800
+var hp = 2
 var colete = false
 var morto = false
 var hud : HUD
@@ -118,11 +118,11 @@ func got_hit(dmg:int):
 		
 	hud.vida.update_health(hp)
 
-#func _on_tempo_de_recarga_timeout():
-	#recarregado = true
 
-
-func _on_hitbox_area_entered(area):
-	if area.is_in_group("Dano2"): #######mudar para esse grupo
-		area.queue_free()
-		hp -= 1
+func change_HUD():
+	hud = get_tree().get_first_node_in_group("HUD")
+	hud.vida.update_health(hp)
+	hud.score.change_score(Global.score_total)
+	hud.municao.change_arma(arma_player.current_arma.name.to_lower())
+	hud.municao.change_ammo(arma_player.current_arma.municao)
+	

@@ -1,14 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://75d2nie002lv"]
+[gd_scene load_steps=6 format=3 uid="uid://75d2nie002lv"]
 
 [ext_resource type="Script" path="res://scenes/boss_fase_2.gd" id="1_32jkn"]
 [ext_resource type="PackedScene" uid="uid://7x8xqmt0e6nb" path="res://HUD/hud.tscn" id="1_llhap"]
 [ext_resource type="PackedScene" uid="uid://yhstuvelyv1u" path="res://boss/boss2/boss_two.tscn" id="2_kbu04"]
 [ext_resource type="TileSet" uid="uid://dupnabqxrmcrf" path="res://andar_1.tres" id="3_g1jid"]
-[ext_resource type="PackedScene" uid="uid://cbla2kogsrsn4" path="res://Arquivos_de_teste/player.tscn" id="5_3uyv2"]
-[ext_resource type="PackedScene" uid="uid://tg4ocn31r3t1" path="res://Arma/Arma.tscn" id="5_kctui"]
-[ext_resource type="Script" path="res://scenes/proxima_fase.gd" id="6_tt7vi"]
+[ext_resource type="PackedScene" uid="uid://cpjbp3unyk2co" path="res://scenes/proxima_fase.tscn" id="5_dcalh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7r0v"]
 
 [node name="BossFase2" type="Node2D"]
 script = ExtResource("1_32jkn")
@@ -30,30 +27,14 @@ layer_4/tile_data = PackedInt32Array(851980, 655361, 5, 917516, 655361, 6, 85198
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("1_llhap")]
 
-[node name="boss_two" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_kbu04")]
+[node name="boss_two" parent="." instance=ExtResource("2_kbu04")]
 position = Vector2(512, 224)
-player = NodePath("../Player")
 metadata/_edit_group_ = true
 
-[node name="Player" parent="." instance=ExtResource("5_3uyv2")]
-position = Vector2(503, 498)
-scale = Vector2(1, 1)
-collision_layer = 31
-collision_mask = 15
-motion_mode = 1
-platform_floor_layers = 4294967071
-metadata/_edit_group_ = true
+[node name="boss_f2_start" type="Marker2D" parent="."]
+position = Vector2(512, 544)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-scale = Vector2(1, 0.993848)
-zoom = Vector2(3, 3)
 
-[node name="Arma" parent="Player" instance=ExtResource("5_kctui")]
-initial_arma = "MCHgun"
-
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("6_tt7vi")
-proxima_cena = "andar_4"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_y7r0v")
+[node name="proxima_fase" parent="." instance=ExtResource("5_dcalh")]
+position = Vector2(416, 8)
+proxima_cena = "andar_5"

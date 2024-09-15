@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2u2pms85pdut"]
+[gd_scene load_steps=13 format=3 uid="uid://d2u2pms85pdut"]
 
 [ext_resource type="Script" path="res://scenes/andar_3.gd" id="1_kvpu1"]
 [ext_resource type="TileSet" uid="uid://dupnabqxrmcrf" path="res://andar_1.tres" id="1_wt4gl"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://tg4ocn31r3t1" path="res://Arma/Arma.tscn" id="4_hjn30"]
 [ext_resource type="PackedScene" uid="uid://cbla2kogsrsn4" path="res://Arquivos_de_teste/player.tscn" id="4_qav1i"]
 [ext_resource type="PackedScene" uid="uid://bdoeksfolujqb" path="res://Inimigo/Inimigo.tscn" id="5_bsls0"]
-[ext_resource type="Script" path="res://scenes/proxima_fase.gd" id="6_pvxum"]
+[ext_resource type="PackedScene" uid="uid://cpjbp3unyk2co" path="res://scenes/proxima_fase.tscn" id="6_jso1k"]
 
 [sub_resource type="Curve2D" id="Curve2D_3b5vr"]
 _data = {
@@ -44,9 +44,6 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_exfm1"]
-size = Vector2(181, 42)
-
 [node name="Andar3" type="Node2D"]
 script = ExtResource("1_kvpu1")
 
@@ -68,21 +65,6 @@ layer_4/tile_data = PackedInt32Array(458762, 655361, 5, 524298, 655361, 6, 45876
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("2_ugsne")]
 
-[node name="Player" parent="." instance=ExtResource("4_qav1i")]
-position = Vector2(602, 908)
-scale = Vector2(1, 1)
-collision_layer = 31
-collision_mask = 15
-motion_mode = 1
-platform_floor_layers = 4294967071
-metadata/_edit_group_ = true
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-scale = Vector2(1, 0.993848)
-zoom = Vector2(3, 3)
-
-[node name="Arma" parent="Player" instance=ExtResource("4_hjn30")]
-initial_arma = "MCHgun"
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(-24, 8)
@@ -174,10 +156,9 @@ nav_target = NodePath("../../../Player")
 [node name="Arma" parent="Path2D6/PathFollow2D/Inimigo" instance=ExtResource("4_hjn30")]
 initial_arma = "Faca"
 
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("6_pvxum")
-proxima_cena = "boss_fase_2"
+[node name="f3_start" type="Marker2D" parent="."]
+position = Vector2(608, 928)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(605.5, -133)
-shape = SubResource("RectangleShape2D_exfm1")
+[node name="proxima_fase" parent="." instance=ExtResource("6_jso1k")]
+position = Vector2(512, -152)
+proxima_cena = "boss_fase_2"
