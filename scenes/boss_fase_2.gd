@@ -24,3 +24,4 @@ func set_player():
 		add_child(player)
 		Global.postion_player_to_new_scene(get_tree().get_first_node_in_group("Jogador"), self)
 		emit_signal("player_setted")
+

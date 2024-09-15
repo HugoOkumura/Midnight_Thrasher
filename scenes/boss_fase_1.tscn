@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://7x8xqmt0e6nb" path="res://HUD/hud.tscn" id="5_ltp2t"]
 [ext_resource type="PackedScene" uid="uid://cpjbp3unyk2co" path="res://scenes/proxima_fase.tscn" id="5_xa8kp"]
 
+
 [node name="boss_fase_1" type="Node2D"]
 script = ExtResource("1_t47xy")
 
@@ -30,6 +31,7 @@ layer_4/tile_data = PackedInt32Array(327682, 458753, 1342177289, 393218, 524289,
 
 [node name="boss_one" parent="." instance=ExtResource("2_waoon")]
 position = Vector2(504, 224)
+
 rotation = -0.0012666
 scale = Vector2(0.5, 0.5)
 
@@ -39,3 +41,4 @@ position = Vector2(280, 640)
 [node name="proxima_fase" parent="." instance=ExtResource("5_xa8kp")]
 position = Vector2(1024, 8)
 proxima_cena = "andar_3"
+

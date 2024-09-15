@@ -5,6 +5,9 @@ const SPEED: float = 200
 const TURN_SPEED: float = 5
 const CROSSHAIR = preload("res://Arquivos_de_teste/character_crosshair.png")
 
+@onready var morte = $morte
+
+
 @onready var _pl = $"."
 @onready var _animated_sprite = $AnimatedSprite2D
 @export var _keys: Dictionary = {
@@ -41,17 +44,29 @@ func _process(_delta: float) -> void:
 	if Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_up") || Input.is_action_pressed("ui_right") || Input.is_action_pressed("ui_down"):
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			#_animated_sprite.play("PUNCH_RUN")
-			_animated_sprite.play("SHOOT_RUN")
+			if str(arma_player.current_arma).to_lower().find("faca") != -1:
+				_animated_sprite.play("PUNCH_RUN")
+			elif str(arma_player.current_arma).to_lower().find("pistola") != -1:
+				_animated_sprite.play("SHOOT_RUN")
+			elif str(arma_player.current_arma).to_lower().find("shotgun") != -1:
+				_animated_sprite.play("SHOOTGUN_RUN")
+			elif str(arma_player.current_arma).to_lower().find("mchgun") != -1:
+				_animated_sprite.play("MACHINEGUN_RUN")
 		else:
 			_animated_sprite.play("RUN")
-
 	else:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			#_animated_sprite.play("PUNCH")
-			_animated_sprite.play("SHOOT")
+			#print(arma_player.current_arma.can_shoot)
+			if str(arma_player.current_arma).to_lower().find("faca") != -1:
+				_animated_sprite.play("PUNCH")
+			elif str(arma_player.current_arma).to_lower().find("pistola") != -1:
+				_animated_sprite.play("SHOOT")
+			elif str(arma_player.current_arma).to_lower().find("shotgun") != -1:
+				_animated_sprite.play("SHOOTGUN")
+			elif str(arma_player.current_arma).to_lower().find("mchgun") != -1:
+				_animated_sprite.play("MACHINEGUN")
 		else:
 			_animated_sprite.play("STOPED")
-			
 	_move_in_any_direction(_delta)
 	_aim_burster()
 	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Global.criacao_no_pai != null and recarregado:
@@ -64,6 +79,7 @@ func _process(_delta: float) -> void:
 		hud.municao.change_ammo(arma_player.current_arma.municao)
 	
 	if hp <= 0:
+		morte.play()
 		get_tree().change_scene_to_file("res://gameover/gameover.tscn")
 	
 

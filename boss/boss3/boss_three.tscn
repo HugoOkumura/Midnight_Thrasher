@@ -226,7 +226,7 @@ size = Vector2(28, 5.375)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qkvp"]
 size = Vector2(28, 15)
 
-[node name="boss_three" type="CharacterBody2D"]
+[node name="boss_three" type="CharacterBody2D" groups=["Inimigo"]]
 position = Vector2(-7.62939e-06, 0)
 scale = Vector2(1, 0.972)
 script = ExtResource("1_c5wp2")
@@ -264,6 +264,7 @@ rotation = -1.5708
 shape = SubResource("RectangleShape2D_nb3hv")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -13.0
 offset_top = -29.0
 offset_right = 32.0

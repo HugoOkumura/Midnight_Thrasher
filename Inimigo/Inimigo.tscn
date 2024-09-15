@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://bdoeksfolujqb"]
+[gd_scene load_steps=78 format=3 uid="uid://bdoeksfolujqb"]
 
 [ext_resource type="Script" path="res://Inimigo/Inimigo.gd" id="1_dy1o6"]
 [ext_resource type="Texture2D" uid="uid://cndk2uf8pn41y" path="res://sprites/Personagem/enemy_death.png" id="2_fk1fj"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Inimigo/InimigoSeguir.gd" id="5_3yft7"]
 [ext_resource type="Script" path="res://Inimigo/InimigoPatrulha.gd" id="5_5thvr"]
 [ext_resource type="Script" path="res://Inimigo/InimigoMorte.gd" id="10_02vat"]
+[ext_resource type="AudioStream" uid="uid://bkj0fchj8nk0v" path="res://efeitosSonoros/death.mp3" id="11_4vc4i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3r0y5"]
 atlas = ExtResource("2_fk1fj")
@@ -596,6 +597,10 @@ collision_mask = 4
 rotation = 0.0025966
 shape = SubResource("CircleShape2D_8rovm")
 debug_color = Color(0.945098, 0.890196, 0, 0.419608)
+
+[node name="morte" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_4vc4i")
+volume_db = 21.029
 
 [connection signal="body_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
 [connection signal="timeout" from="State Machine/InimigoAtaque/Timer" to="State Machine/InimigoAtaque" method="_on_timer_timeout"]
